@@ -31,7 +31,7 @@ Feature: Registration
     Then I should be on the registration page
     Then the "Username" field should have the error "Username already exists"
 
-  Scenario: Username already exists
+  Scenario: Passwords do not match 
     Given I am not currently logged in
     When I am on the registration page
     Then I should see "Sign Up"
