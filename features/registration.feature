@@ -7,6 +7,7 @@ Feature: Registration
     Given I am not currently logged in
     When I am on the registration page
     Then I should see "Sign Up"
+    And I fill in "Username" with "michellebu"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "michellebu@berkeley.edu"
     And I fill in "Password" with "hunter2"
