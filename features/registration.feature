@@ -19,7 +19,7 @@ Feature: Registration
 
   Scenario: Username already exists
     Given I am not currently logged in
-    Given "takenusername" is a user
+    Given "takenusername" is an existing user
     When I am on the registration page
     Then I should see "Sign Up"
     And I fill in "Username" with "takenusername"
@@ -30,6 +30,20 @@ Feature: Registration
     And I press "Register"
     Then I should be on the registration page
     Then the "Username" field should have the error "Username already exists"
+
+  Scenario: Email already exists
+    Given I am not currently logged in
+    Given "takenemail@taken.com" is an existing email
+    When I am on the registration page
+    Then I should see "Sign Up"
+    And I fill in "Username" with "michellebu"
+    And I fill in "Name" with "Michelle Bu"
+    And I fill in "Email" with "takenemail@taken.com"
+    And I fill in "Password" with "hunter2"
+    And I fill in "Confirm Password" with "hunter2"
+    And I press "Register"
+    Then I should be on the registration page
+    Then the "Email" field should have the error "Email already exists"
 
   Scenario: Passwords do not match 
     Given I am not currently logged in
