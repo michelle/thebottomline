@@ -19,6 +19,9 @@ module NavigationHelpers
     when /^the registration page$/
     	'/register'
 
+    when /^the registration acknowledgement page$/
+    	'/register/success'
+
     when /^the send an e-card page$/
     	'/send'
 
