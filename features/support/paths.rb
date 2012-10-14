@@ -16,6 +16,18 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+    when /^the registration page$/
+    	'/register'
+
+    when /^the registration acknowledgement page$/
+    	'/register/success'
+
+    when /^the send an e-card page$/
+    	'/send'
+
+    when /^the e-card acknowledgement page$/
+    	'/send/success'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
