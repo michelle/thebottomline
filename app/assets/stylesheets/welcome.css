@@ -1,0 +1,16 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+#temp {
+	border-radius: 5px;
+	background-color: rgba(255,255,255,0.4);
+	width: 600px;
+	height: 150px;
+	text-align: center;
+	padding: 50px;
+	padding-top: 100px;
+	margin: auto;
+	box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
