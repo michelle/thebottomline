@@ -3,12 +3,13 @@ require 'spec_helper'
 describe UsersController do
   describe 'registering a user' do
     it 'should check if the form is complete' do
-      
     end
     describe 'after incomplete form' do
       it 'should redirect user back to registration page' do
       end
       it 'should highlight the incomplete fields' do
+      end
+      it 'should say \'Please fill required fields\'' do
       end
     end
     it 'should check if username exists' do
@@ -38,7 +39,7 @@ describe UsersController do
       end
       it 'should highlight the confirm password field' do
       end
-      it 'should say \'Passwords do not match\'' do
+      it 'should say \'Passwords don\'t match\'' do
       end
     end
     it 'should create user' do
@@ -49,5 +50,8 @@ describe UsersController do
       it 'should display \'Send a reminder today!\'' do
       end
     end
+  end
+end  
+
       
     
