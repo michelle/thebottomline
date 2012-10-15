@@ -9,8 +9,20 @@
       "/Users/michelle/Dropbox/CS169/thebottomline/app/helpers/application_helper.rb": [
         1,
         null
+      ],
+      "/Users/michelle/Dropbox/CS169/thebottomline/app/helpers/welcome_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/michelle/Dropbox/CS169/thebottomline/app/controllers/welcome_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1350247180
+    "timestamp": 1350258130
   }
 }
