@@ -1,7 +1,7 @@
 class RegisterController < ApplicationController
 
   def new
-    render index
+    render "index"
   end
   
   def create
@@ -12,7 +12,7 @@ class RegisterController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:error] = @user.errors.full_messages.join "<br>"
-      render index
+      render "index"
     end
   end
   
