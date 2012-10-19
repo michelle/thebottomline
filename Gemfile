@@ -16,9 +16,11 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'bcrypt-ruby'
 end
 group :production do
   gem 'pg'
+  gem 'bcrypt-ruby'
 end
 
 # Gems used only for assets and not required
