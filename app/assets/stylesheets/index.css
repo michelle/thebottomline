@@ -1,3 +1,18 @@
+/** Newer CSS */
+.rinput {
+	outline: 0;
+	border: 1px solid #ccc;
+	border-radius: 1px;
+	padding: 10px;
+	margin: 5px 0;
+}
+
+.rinput:hover {
+	box-shadow: 0 0 5px #ccc;
+}
+
+
+
 body 
 {
 	background: #81cbe4;
