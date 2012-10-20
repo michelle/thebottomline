@@ -10,6 +10,7 @@ class LoginController < ApplicationController
       flash[:error] = "Email and password combination do not match, try again!"
       render "index"
     else
+    	flash[:notice] = "Welcome, <strong>" + @user.name + "</strong>!"
       session[:userid] = @user.id
       redirect_to welcome_path
     end
