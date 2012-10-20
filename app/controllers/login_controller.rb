@@ -22,5 +22,19 @@ class LoginController < ApplicationController
     redirect_to welcome_path
   end
 
+	def forgot_password
+		render "lostpassword"
+	end
+
+  def send_password
+  	success = User.forgot_password(params[:email])
+  	if success
+  		flash[:notice] = 'Password successfully sent'
+			redirect_to welcome_path
+		else
+			flash[:error] = 'Email not found. <a href="/register">Register?</a>'
+  		render 'lostpassword'
+		end
+	end
 
 end

@@ -61,6 +61,8 @@ Thebottomline::Application.routes.draw do
   match 'logout' => 'login#logout', :via => :get, :as => :logout
   match 'login' => 'login#index', :via => :get, :as => :login
   match 'login' => 'login#login', :via => :post
+  match 'forgot' => 'login#forgot_password', :via => :get, :as => :forgot
+  match 'forgot' => 'login#send_password', :via => :post
   
   root :to => 'welcome#index', :as => :welcome
   
