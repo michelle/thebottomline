@@ -58,9 +58,10 @@ Thebottomline::Application.routes.draw do
   match 'register' => 'register#new', :via => :get, :as => :register
   match 'register' => 'register#create', :via => :post
   
+  match 'logout' => 'login#logout', :via => :get, :as => :logout
   match 'login' => 'login#index', :via => :get, :as => :login
   match 'login' => 'login#login', :via => :post
   
-  root :to => 'welcome#index'
+  root :to => 'welcome#index', :as => :welcome
   
 end
