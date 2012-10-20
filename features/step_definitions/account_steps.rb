@@ -24,3 +24,9 @@ Given /^I have logged in$/ do
 	step 'I fill in "user_password" with "hunter2"'
 	step 'I press "Login"'
 end
+
+When /^I try to recover my password$/ do
+	step 'I am on the recover password page'
+  step 'I fill in "email" with "michellebu@berkeley.edu"'
+  step 'I press "Send New Password"'
+end

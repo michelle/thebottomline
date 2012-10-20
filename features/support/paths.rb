@@ -31,6 +31,9 @@ module NavigationHelpers
     when /^the welcome page$/
     	welcome_path
 
+    when /^the recover password page$/
+			forgot_path	
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
