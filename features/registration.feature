@@ -6,8 +6,7 @@ Feature: Registration
   Scenario: Standard registration
     Given I am not currently logged in
     When I am on the registration page
-    Then I should see "Sign Up"
-    And I fill in "Username" with "michellebu"
+    Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "michellebu@berkeley.edu"
     And I fill in "Password" with "hunter2"
@@ -20,8 +19,7 @@ Feature: Registration
     Given I am not currently logged in
     Given "takenemail@taken.com" is an existing email
     When I am on the registration page
-    Then I should see "Sign Up"
-    And I fill in "Username" with "michellebu"
+    Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "takenemail@taken.com"
     And I fill in "Password" with "hunter2"
@@ -34,8 +32,7 @@ Feature: Registration
   Scenario: Passwords do not match 
     Given I am not currently logged in
     When I am on the registration page
-    Then I should see "Sign Up"
-    And I fill in "Username" with "michellebu"
+    Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "michellebu@berkeley.edu"
     And I fill in "Password" with "hunter2"
@@ -48,8 +45,7 @@ Feature: Registration
   Scenario: Password is too short
     Given I am not currently logged in
     When I am on the registration page
-    Then I should see "Sign Up"
-    And I fill in "Username" with "michellebu"
+    Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "michellebu@berkeley.edu"
     And I fill in "Password" with "hun"
@@ -62,7 +58,7 @@ Feature: Registration
   Scenario: Blank fields 
     Given I am not currently logged in
     When I am on the registration page
-    Then I should see "Sign Up"
+    Then I should see "Register"
     And I fill in "Email" with "michellebu@berkeley.edu"
     And I fill in "Password" with "hunter2"
     And I fill in "Confirm Password" with "hunter3"

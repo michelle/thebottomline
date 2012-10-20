@@ -17,7 +17,10 @@
       <a class="nav" href="/about"><img src="images/about.png" width="52" height="22" vspace="5" /></a>
       <a class="nav" href="/"><img src="images/logo.png" width="372" height="161" /></a>
       <a class="nav" href="/help"><img src="images/help.png" vspace="5" /></a>
-      <a class="nav" href="/support"><img src="images/support.png" vspace="5" /></a>
+      <!--a class="nav" href="/support"><img src="images/support.png" vspace="5" /></a-->
+      <% if !session[:userid].nil? then %><a class="nav usercontrol" href="/logout">Sign out</a><% end %>
+      <% if session[:userid].nil? then %><a class="nav usercontrol" href="/login">Sign in</a><% end %>
+
 
       <div id="content">
 	<% if !flash[:error].nil? then %><div class="error"><strong>Error:</strong> <%= flash[:error].html_safe %></div><% end %>
