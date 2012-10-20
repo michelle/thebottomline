@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
     self.password = BCrypt::Password.create(self.password)
   end
   
-  #def login
-  #  @user = User.find_by_email(self.email)
-  #  if @user.password == 
-  #end
+  def login
+    @user = User.find_by_email(self.email)
+    if @user.password == 
+  end
   
 end
