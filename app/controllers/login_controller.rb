@@ -11,14 +11,14 @@ class LoginController < ApplicationController
       render "index"
     else
       session[:userid] = @user.id
-      redirect_to dashboard_path
+      redirect_to welcome_path
     end
   end
   
   def logout
     session.delete :userid
     flash[:notice] = 'Logged out successfully'
-    redirect_to login_path
+    redirect_to welcome_path
   end
 
 
