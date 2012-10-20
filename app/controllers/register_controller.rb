@@ -16,6 +16,7 @@ class RegisterController < ApplicationController
       flash[:error] = @user.errors.full_messages.concat(errors).join "<br>"
       render "index"
     else
+      flash[:notice] = "Thanks for signing up! You're ready to send cards"
       @user.save
       session[:userid] = @user.id
       redirect_to dashboard_path
