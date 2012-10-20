@@ -28,9 +28,11 @@ class User < ActiveRecord::Base
 
   def self.forgot_password(email)
     user = User.find_by_email(email)
+		if user.nil? then return false end
     random_password = Array.new(10).map { (65 + rand(58)).chr }.join
     user.password = BCrypt::Password.create(random_password)
     user.save!
     UserMailer.create_and_deliver_password_change(user,random_password)
+    return true
   end
 end

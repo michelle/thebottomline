@@ -19,14 +19,17 @@ module NavigationHelpers
     when /^the registration page$/
     	'/register'
 
-    when /^the registration acknowledgement page$/
-    	'/register/success'
-
     when /^the send an e-card page$/
     	'/send'
 
     when /^the e-card acknowledgement page$/
     	'/send/success'
+
+    when /^the login page$/
+    	'/login'
+
+    when /^the welcome page$/
+    	welcome_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

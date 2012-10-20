@@ -13,21 +13,26 @@
 
 <div id="container">
       <!--td width="82" height="161" align="center"><img src="images/pinterest-icon.png" width="20" class="floatRightClear" vspace="20"><a href="https://www.facebook.com/signthebottomline"><img src="images/facebook-icon.png"  width="20" class="floatRightClear" vspace="20"></a><a href="https://twitter.com/#!/signbottomline"><img src="images/twitter-icon.png" width="20" class="floatRightClear" vspace="20"></a></td-->
-      <a class="nav" href="mission.html"><img src="images/mission.png" width="67" height="21" vspace="5" /></a>
-      <a class="nav" href="about.html"><img src="images/about.png" width="52" height="22" vspace="5" /></a>
-      <a class="nav" href="index.html"><img src="images/logo.png" width="372" height="161" /></a>
-      <a class="nav" href="getinvolved.html"><img src="images/help.png" vspace="5" /></a>
-      <a class="nav" href="support.html"><img src="images/support.png" vspace="5" /></a>
+      <a class="nav" href="/mission"><img src="images/mission.png" width="67" height="21" vspace="5" /></a>
+      <a class="nav" href="/about"><img src="images/about.png" width="52" height="22" vspace="5" /></a>
+      <a class="nav" href="/"><img src="images/logo.png" width="372" height="161" /></a>
+      <a class="nav" href="/help"><img src="images/help.png" vspace="5" /></a>
+      <!--a class="nav" href="/support"><img src="images/support.png" vspace="5" /></a-->
+      <% if !session[:userid].nil? then %><a class="nav usercontrol" href="/logout">Sign out</a><% end %>
+      <% if session[:userid].nil? then %><a class="nav usercontrol" href="/login">Sign in</a><% end %>
+
 
       <div id="content">
+	<% if !flash[:error].nil? then %><div class="error"><strong>Error:</strong> <%= flash[:error].html_safe %></div><% end %>
+        <% if !flash[:notice].nil? then %><div class="notice"><%= flash[:notice].html_safe %></div><% end %>
       	<%= yield %>
       </div>
 
     <div id="frontbutton">
       <a href="http://eepurl.com/nCQOX"><img src="images/postcard.png" width="530" height="54" align="top" /></a>
     </div>
-</div>
 
 <div id="copyright">&#169; 2012 The Bottom Line 2012. All rights reserved. The Bottom Line is not a substitute for medical advice. Please consult a medical specialist for support. Your privacy is important to The Bottom Line. Personal information you provide will never be sold to commercial interests. Like these designs? Visit <a href="http://www.IHeartGuts.com">IHeartGuts.com</a></div>
+</div>
 </body>
 </html>

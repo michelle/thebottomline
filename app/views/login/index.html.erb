@@ -1,0 +1,14 @@
+<div id="login">
+<h2>Login</h2>
+<%= form_tag :action => "login" do %>
+<div class="clearfix">
+<%= email_field_tag('user[email]', nil, {:class => 'rinput', :placeholder => 'Email', :required => 'required'})%>  
+</div>
+<div class="clearfix">
+	<%= password_field_tag('user[password]', nil, {:class => 'rinput', :placeholder => 'Password',  :required => 'required'})%>
+</div>
+<%= submit_tag 'Login', :class => 'rbutton' %>
+<% end %>
+<span class='forgotpw'><a href='/forgot'>Forgot your password?</a></span><br>
+<a href='/register'>Don't have an account? Register now!</a>
+</div>
