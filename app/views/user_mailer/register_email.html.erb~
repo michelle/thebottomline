@@ -6,7 +6,7 @@
   <body>
     <h1>Welcome to the Bottom Line, <%= @user.name %></h1>
     <p>
-      You have successfully signed up with the Bottom Line!
+      You have successfully signed up to signonthebottomline.com,
       
     </p>
     <p>
