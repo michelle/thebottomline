@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     self.password = BCrypt::Password.create(self.password)
   end
   
-  def valid_user(email, password)
+  def self.valid_user(email, password)
     user = User.find_by_email(email)
     if !user.nil? and self.correct_password?(user, password)
       return user
