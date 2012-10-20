@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
     random_password = Array.new(10).map { (65 + rand(58)).chr }.join
     user.password = BCrypt::Password.create(random_password)
     user.save!
-    UserMailer.create_and_deliver_password_change(user,random_password)
+    UserMailer.password_change(user,random_password).deliver
     return true
   end
 end
