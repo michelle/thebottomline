@@ -2,23 +2,45 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
 
+a {
+	text-decoration: none;
+	font-weight: 700;
+	color: #bc2d67;
+}
+
+a:hover {
+	color: #8a1443;
+}
+
 /** Layout stuff */
 #container {
 	width: 800px;
-	margin: 0 auto;
+	margin: 50px auto;
 	text-align: center;
 }
 
 #content {
 	border-radius: 5px;
-	background-color: rgba(255,255,255,0.4);
-	width: 600px;
-	height: 150px;
+	background-color: rgba(255,255,255,0.8);
+	width: 700px;
 	text-align: center;
 	padding: 20px;
 	height: 100%;
-	margin: auto;
+	min-height: 250px;
+	margin: 10px auto;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+#frontbutton {
+	margin: 20px;
+}
+
+#copyright {
+	width: 600px;
+	font-size: 12px;
+	color: #fff;
+	margin: 0 auto;
+	line-height: 15px;
 }
 
 .nav {
@@ -27,62 +49,79 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 h2 {
 	font-size: 30px;
-	
+	margin-bottom: 10px;	
+	color: #a3c4c9;
+	text-shadow: 0px 2px 0px #fff;
+	font-weight: 700;
+}
+
+
+input::-webkit-input-placeholder {
+	color: #b3d8dd;
+}
+
+input:-moz-placeholder {
+	color: #b3d8dd;
 }
 
 #register {
+	text-align: left;
 	font-size: 18px;
-	width: 500px;
-	background-color: #fff;
 }
 
 #register label {
 	line-height: 40px;
 }
 #register .speciallabel {
-	line-height: 20px;
+	font-size: 14px;
+
+}
+
+#register form {
+	border: 1px solid #cbe7eb;
+	background-color: #fff;
+	padding: 5px 10px;
 }
 
 .clearfix {
 	margin: 5px 0px;
 	width: auto;
 	height: 42px;
-	border: 1px solid #dce2e8;
 	clear: both;
-	background-color: #f1f5f8;
-	padding: 2px 2px 2px 10px;
+
 }
 
 .rinput {
 	height: 20px;
 	outline: 0;
-	border: 1px solid #dce2e8;
+	border: 1px solid #cbe7eb;
 	border-radius: 5px;
 	float: right;
 	padding: 10px;
-	width: 50%;
+	width: 70%;
 	font-size: 18px;
 }
 
 .rinput:focus {
-	box-shadow: 0 0 5px #dce2e8;
+	box-shadow: 0 0 5px #cbe7eb;
 }
 
 .rbutton {
 	border-radius: 5px;
-	border: 1px solid #bf5454;
-	background-color: #cb6464;
-	text-shadow: 0px 2px 0px #bf5454;
+	border: 1px solid #ba2c65;
+	background-color: #d03c78;
+	text-shadow: 0px 2px 0px #ba2c65;
 	color: #fff;
 	display: block;
 	width: 100px;
 	height: 40px;
 	font-size: 18px;
 	cursor: pointer;
+	margin: 10px auto;
 }
 
 .rbutton:hover {
-	background-color: #bf5454;
+	background-color: #ba2c65;
 }
 
 
@@ -90,4 +129,9 @@ h2 {
 body 
 {
 	background: #81cbe4;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: light;
+	font-size: 15px;
+	line-height: 25px;
+	color: #164b73;
 }
