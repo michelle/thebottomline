@@ -7,12 +7,13 @@ class RegisterController < ApplicationController
   def create
     @user = User.new params[:user]
     valid = @user.valid?
-    if params[:confirm]
-      flash[:error] = @user.errors.full_messages << "Passwords do not match"
+    errors = []
+    if params[:confirm] != params[:user][:password]
+      flash[:error] = errors << "Passwords do not match"
       valid = false
     end
     if not valid
-      flash[:error] = @user.errors.full_messages.join "<br>"
+      flash[:error] = @user.errors.full_messages.concat(errors).join "<br>"
       render "index"
     else
       @user.save
