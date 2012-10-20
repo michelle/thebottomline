@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     return my_password == password
   end
   
-  def forgot_password(email)
+  def self.forgot_password(email)
     user = User.find_by_email(email)
     random_password = Array.new(10).map { (65 + rand(58)).chr }.join
     user.password = random_password

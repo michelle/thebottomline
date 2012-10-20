@@ -46,12 +46,12 @@ describe UsersController do
     end
     describe 'after successful registration' do
       it 'should redirect user to registration acknowledgement page' do
-      end 
+      end
       it 'should display \'Send a reminder today!\'' do
       end
     end
   end
-end  
+end
 
-      
-    
+
+
