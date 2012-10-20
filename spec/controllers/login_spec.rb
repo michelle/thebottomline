@@ -25,12 +25,14 @@ describe LoginController do
     end
   end
   
-  describe 'log in a user a user' do
+  describe 'log in a user' do
     before :each do
       @user = mock()
       @userid = 5
+      @username = 'testuser'
+      @user.stub(:name).and_return @username
       @user.stub(:id).and_return @userid
-      @params = {:user => {:email => 'asdf@asdf.com', :password => 'abc'}}
+      @params = {:user => {:name => 'testuser', :email => 'asdf@asdf.com', :password => 'abc'}}
     end
     
     it 'should call valid_user' do
@@ -61,6 +63,7 @@ describe LoginController do
       User.should_receive(:valid_user).and_return @user
       post :login, @params
       response.should redirect_to welcome_path
+      flash[:notice].should eq 'Welcome, <strong>' + @user.name + '</strong>!'
     end
   end
 end  
