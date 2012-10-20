@@ -5,7 +5,7 @@ class RegisterController < ApplicationController
   end
   
   def create
-    @user = Users.new params[:user]
+    @user = User.new params[:user]
     valid = @user.valid?
     if params[:confirm]
       flash[:error] = @user.errors.full_messages << "Passwords do not match"
