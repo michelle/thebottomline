@@ -46,10 +46,10 @@ describe LoginController do
       flash[:error].should include 'Email and password combination do not match, try again!'
     end
     
-    it 'should render login page again if invalid credentials' do
+    it 'should redirect to login page again if invalid credentials' do
       User.stub(:valid_user)
       post :login, @params
-      response.should render_template 'index'
+      response.should redirect_to login_path
     end
     
         

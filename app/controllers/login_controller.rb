@@ -8,7 +8,7 @@ class LoginController < ApplicationController
     @user = User.valid_user params[:user][:email], params[:user][:password]
     if @user.nil? 
       flash[:error] = "Email and password combination do not match, try again!"
-      render "index"
+      redirect_to login_path
     else
     	flash[:notice] = "Welcome, <strong>" + @user.name + "</strong>!"
       session[:userid] = @user.id
@@ -33,7 +33,7 @@ class LoginController < ApplicationController
 			redirect_to welcome_path
 		else
 			flash[:error] = 'Email not found. <a href="/register">Register?</a>'
-  		render 'lostpassword'
+  		redirect_to forgot_path
 		end
 	end
 

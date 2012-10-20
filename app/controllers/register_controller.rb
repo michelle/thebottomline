@@ -14,7 +14,7 @@ class RegisterController < ApplicationController
     end
     if not @valid
       flash[:error] = @user.errors.full_messages.concat(errors).join "<br>"
-      render "index"
+      redirect_to register_path
     else
       flash[:notice] = "Thanks for signing up! You're ready to send cards"
       @user.save
