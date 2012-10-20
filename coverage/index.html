@@ -3,38 +3,38 @@
   <head>
     <title>Code coverage for Thebottomline</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <script src='./assets/0.7.0/application.js' type='text/javascript'></script>    
-    <link href='./assets/0.7.0/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.7.0/favicon_green.png" />
-    <link rel="icon" type="image/png" href="./assets/0.7.0/favicon.png" />
+    <script src='./assets/0.7.1/application.js' type='text/javascript'></script>    
+    <link href='./assets/0.7.1/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="./assets/0.7.1/favicon_red.png" />
+    <link rel="icon" type="image/png" href="./assets/0.7.1/favicon.png" />
   </head>
   
   <body>
     <div id="loading">
-      <img src="./assets/0.7.0/loading.gif" alt="loading"/>
+      <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-10-14T16:42:10-07:00">2012-10-14T16:42:10-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-10-19T19:17:58-07:00">2012-10-19T19:17:58-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="red">53.62%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="yellow">
-         1.0
+       <span class="red">
+         0.94
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>4</b> files in total.
-    <b>6</b> relevant lines. 
-    <span class="green"><b>6</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>8</b> files in total.
+    <b>69</b> relevant lines. 
+    <span class="green"><b>37</b> lines covered</span> and
+    <span class="red"><b>32</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -51,7 +51,7 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#3b03bc8e8a2d34f7e95fdd75b4ec898463fdc614" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
+        <td class="strong"><a href="#6125bcfed0f764986afdb4cfbfe25e98d9c21703" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>3</td>
         <td>2</td>
@@ -61,7 +61,27 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#e49dbf479c61e84e28617d7e461779fb683a8b05" class="src_link" title="app/controllers/welcome_controller.rb">app/controllers/welcome_controller.rb</a></td>
+        <td class="strong"><a href="#97b876945ae69e2b825ce5315fc4c45f9f4c47c6" class="src_link" title="app/controllers/login_controller.rb">app/controllers/login_controller.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>25</td>
+        <td>14</td>
+        <td>14</td>
+        <td>0</td>
+        <td>2.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#20a66ebd2ae38f68827a88d1a7b11ac4af6c070a" class="src_link" title="app/controllers/register_controller.rb">app/controllers/register_controller.rb</a></td>
+        <td class="red strong">17.65 %</td>
+        <td>26</td>
+        <td>17</td>
+        <td>3</td>
+        <td>14</td>
+        <td>0.2</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#b86bb2372bb6e9efd1496bb09bb980dd930fa576" class="src_link" title="app/controllers/welcome_controller.rb">app/controllers/welcome_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>6</td>
         <td>2</td>
@@ -71,7 +91,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#82a7aa669026739f4d39f42faece1584e295a30f" class="src_link" title="app/helpers/application_helper.rb">app/helpers/application_helper.rb</a></td>
+        <td class="strong"><a href="#2739ee98c792c45cb531a0df8015f1091310d684" class="src_link" title="app/helpers/application_helper.rb">app/helpers/application_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>2</td>
         <td>1</td>
@@ -81,13 +101,33 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#ff2f266dbc3f704249ec353b98a82ac6e35f7b00" class="src_link" title="app/helpers/welcome_helper.rb">app/helpers/welcome_helper.rb</a></td>
+        <td class="strong"><a href="#369f56309e6d15652b3d8c9b49c1046ea27c7d10" class="src_link" title="app/helpers/welcome_helper.rb">app/helpers/welcome_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>2</td>
         <td>1</td>
         <td>1</td>
         <td>0</td>
         <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#cf369538c2da59f9330fff4409edd9fbdcb6fff1" class="src_link" title="app/mailers/user_mailer.rb">app/mailers/user_mailer.rb</a></td>
+        <td class="red strong">36.36 %</td>
+        <td>16</td>
+        <td>11</td>
+        <td>4</td>
+        <td>7</td>
+        <td>0.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#cd8aab176262272e5f10db77cc755e5c70779fdc" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
+        <td class="red strong">47.62 %</td>
+        <td>36</td>
+        <td>21</td>
+        <td>10</td>
+        <td>11</td>
+        <td>0.5</td>
       </tr>
       
     </tbody>
@@ -99,20 +139,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="red">60.0%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="yellow">
-         1.0
+       <span class="green">
+         1.15
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
-    <b>2</b> files in total.
-    <b>4</b> relevant lines. 
-    <span class="green"><b>4</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>4</b> files in total.
+    <b>35</b> relevant lines. 
+    <span class="green"><b>21</b> lines covered</span> and
+    <span class="red"><b>14</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -129,7 +169,7 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#3b03bc8e8a2d34f7e95fdd75b4ec898463fdc614" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
+        <td class="strong"><a href="#6125bcfed0f764986afdb4cfbfe25e98d9c21703" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>3</td>
         <td>2</td>
@@ -139,7 +179,27 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#e49dbf479c61e84e28617d7e461779fb683a8b05" class="src_link" title="app/controllers/welcome_controller.rb">app/controllers/welcome_controller.rb</a></td>
+        <td class="strong"><a href="#97b876945ae69e2b825ce5315fc4c45f9f4c47c6" class="src_link" title="app/controllers/login_controller.rb">app/controllers/login_controller.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>25</td>
+        <td>14</td>
+        <td>14</td>
+        <td>0</td>
+        <td>2.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#20a66ebd2ae38f68827a88d1a7b11ac4af6c070a" class="src_link" title="app/controllers/register_controller.rb">app/controllers/register_controller.rb</a></td>
+        <td class="red strong">17.65 %</td>
+        <td>26</td>
+        <td>17</td>
+        <td>3</td>
+        <td>14</td>
+        <td>0.2</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#b86bb2372bb6e9efd1496bb09bb980dd930fa576" class="src_link" title="app/controllers/welcome_controller.rb">app/controllers/welcome_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>6</td>
         <td>2</td>
@@ -156,20 +216,20 @@
           <div class="file_list_container" id="Models">
   <h2>
     <span class="group_name">Models</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="red">47.62%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.0
+         0.5
        </span>
     </span> hits/line)
   </h2>
   <a name="Models"></a>
   <div>
-    <b>0</b> files in total.
-    <b>0.0</b> relevant lines. 
-    <span class="green"><b>0.0</b> lines covered</span> and
-    <span class="red"><b>0.0</b> lines missed </span>
+    <b>1</b> files in total.
+    <b>21</b> relevant lines. 
+    <span class="green"><b>10</b> lines covered</span> and
+    <span class="red"><b>11</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -185,6 +245,16 @@
     </thead>
     <tbody>
       
+      <tr>
+        <td class="strong"><a href="#cd8aab176262272e5f10db77cc755e5c70779fdc" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
+        <td class="red strong">47.62 %</td>
+        <td>36</td>
+        <td>21</td>
+        <td>10</td>
+        <td>11</td>
+        <td>0.5</td>
+      </tr>
+      
     </tbody>
   </table>
 </div>
@@ -193,20 +263,20 @@
           <div class="file_list_container" id="Mailers">
   <h2>
     <span class="group_name">Mailers</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="red">36.36%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.0
+         0.4
        </span>
     </span> hits/line)
   </h2>
   <a name="Mailers"></a>
   <div>
-    <b>0</b> files in total.
-    <b>0.0</b> relevant lines. 
-    <span class="green"><b>0.0</b> lines covered</span> and
-    <span class="red"><b>0.0</b> lines missed </span>
+    <b>1</b> files in total.
+    <b>11</b> relevant lines. 
+    <span class="green"><b>4</b> lines covered</span> and
+    <span class="red"><b>7</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -221,6 +291,16 @@
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td class="strong"><a href="#cf369538c2da59f9330fff4409edd9fbdcb6fff1" class="src_link" title="app/mailers/user_mailer.rb">app/mailers/user_mailer.rb</a></td>
+        <td class="red strong">36.36 %</td>
+        <td>16</td>
+        <td>11</td>
+        <td>4</td>
+        <td>7</td>
+        <td>0.4</td>
+      </tr>
       
     </tbody>
   </table>
@@ -260,7 +340,7 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#82a7aa669026739f4d39f42faece1584e295a30f" class="src_link" title="app/helpers/application_helper.rb">app/helpers/application_helper.rb</a></td>
+        <td class="strong"><a href="#2739ee98c792c45cb531a0df8015f1091310d684" class="src_link" title="app/helpers/application_helper.rb">app/helpers/application_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>2</td>
         <td>1</td>
@@ -270,7 +350,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#ff2f266dbc3f704249ec353b98a82ac6e35f7b00" class="src_link" title="app/helpers/welcome_helper.rb">app/helpers/welcome_helper.rb</a></td>
+        <td class="strong"><a href="#369f56309e6d15652b3d8c9b49c1046ea27c7d10" class="src_link" title="app/helpers/welcome_helper.rb">app/helpers/welcome_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>2</td>
         <td>1</td>
@@ -361,14 +441,14 @@
       </div>
     
       <div id="footer">
-        Generated by <a href="http://github.com/colszowka/simplecov">simplecov</a> v0.7.0 
-        and simplecov-html v0.7.0<br/>
-        using Cucumber Features
+        Generated by <a href="http://github.com/colszowka/simplecov">simplecov</a> v0.7.1 
+        and simplecov-html v0.7.1<br/>
+        using RSpec
       </div>
     
       <div class="source_files">
       
-        <div class="source_table" id="3b03bc8e8a2d34f7e95fdd75b4ec898463fdc614">
+        <div class="source_table" id="6125bcfed0f764986afdb4cfbfe25e98d9c21703">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -404,7 +484,349 @@
   </pre>
 </div>
       
-        <div class="source_table" id="e49dbf479c61e84e28617d7e461779fb683a8b05">
+        <div class="source_table" id="97b876945ae69e2b825ce5315fc4c45f9f4c47c6">
+  <div class="header">
+    <h3>app/controllers/login_controller.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class LoginController &lt; ApplicationController</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def index</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    render &quot;index&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def login</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="8">
+          <span class="hits">5</span>
+          
+          <code class="ruby">    @user = User.valid_user params[:user][:email], params[:user][:password]</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="9">
+          <span class="hits">5</span>
+          
+          <code class="ruby">    if @user.nil? </code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="10">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      flash[:error] = &quot;Email and password combination do not match, try again!&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      render &quot;index&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="13">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      session[:userid] = @user.id</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      redirect_to welcome_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def logout</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="19">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    session.delete :userid</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="20">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    flash[:notice] = 'Logged out successfully'</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="21">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    redirect_to welcome_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="20a66ebd2ae38f68827a88d1a7b11ac4af6c070a">
+  <div class="header">
+    <h3>app/controllers/register_controller.rb</h3>
+    <h4><span class="red">17.65 %</span> covered</h4>
+    <div>
+      <b>17</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>14</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class RegisterController &lt; ApplicationController</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def new</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="4">
+          
+          
+          <code class="ruby">    render &quot;index&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="8">
+          
+          
+          <code class="ruby">    @user = User.new params[:user]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="9">
+          
+          
+          <code class="ruby">    @valid = @user.valid?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="10">
+          
+          
+          <code class="ruby">    errors = []</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="11">
+          
+          
+          <code class="ruby">    if params[:confirm] != params[:user][:password]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">      flash[:error] = errors &lt;&lt; &quot;Passwords do not match&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="13">
+          
+          
+          <code class="ruby">      @valid = false</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
+          
+          <code class="ruby">    if not @valid</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">      flash[:error] = @user.errors.full_messages.concat(errors).join &quot;&lt;br&gt;&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
+          
+          <code class="ruby">      render &quot;index&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
+          
+          <code class="ruby">      flash[:notice] = &quot;Thanks for signing up! You're ready to send cards&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">      @user.save</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">      session[:userid] = @user.id</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="22">
+          
+          
+          <code class="ruby">      redirect_to welcome_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="b86bb2372bb6e9efd1496bb09bb980dd930fa576">
   <div class="header">
     <h3>app/controllers/welcome_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -433,13 +855,13 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">def show</code>
+          <code class="ruby">  def show</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -458,7 +880,7 @@
   </pre>
 </div>
       
-        <div class="source_table" id="82a7aa669026739f4d39f42faece1584e295a30f">
+        <div class="source_table" id="2739ee98c792c45cb531a0df8015f1091310d684">
   <div class="header">
     <h3>app/helpers/application_helper.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -488,7 +910,7 @@
   </pre>
 </div>
       
-        <div class="source_table" id="ff2f266dbc3f704249ec353b98a82ac6e35f7b00">
+        <div class="source_table" id="369f56309e6d15652b3d8c9b49c1046ea27c7d10">
   <div class="header">
     <h3>app/helpers/welcome_helper.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -509,6 +931,354 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="cf369538c2da59f9330fff4409edd9fbdcb6fff1">
+  <div class="header">
+    <h3>app/mailers/user_mailer.rb</h3>
+    <h4><span class="red">36.36 %</span> covered</h4>
+    <div>
+      <b>11</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class UserMailer &lt; ActionMailer::Base</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  default from: &quot;noreply@thebottomline.com&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def register_email(user)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="5">
+          
+          
+          <code class="ruby">    @user = user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="6">
+          
+          
+          <code class="ruby">    @url  = &quot;http://signthebottomline.org/&quot; + login_path</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="7">
+          
+          
+          <code class="ruby">    mail(:to =&gt; user.email, :subject =&gt; &quot;Check out WhatsUpYourButt&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create_and_deliver_password_change(user,random_password)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="11">
+          
+          
+          <code class="ruby">    @user = user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">    @url  = &quot;http://signthebottomline.org/&quot; + login_path</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="13">
+          
+          
+          <code class="ruby">    @random_password = random_password</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="14">
+          
+          
+          <code class="ruby">    mail(:to =&gt; user.email, :subject =&gt; &quot;Forgot Password The Bottom Line&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="cd8aab176262272e5f10db77cc755e5c70779fdc">
+  <div class="header">
+    <h3>app/models/user.rb</h3>
+    <h4><span class="red">47.62 %</span> covered</h4>
+    <div>
+      <b>21</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>11</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'bcrypt'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class User &lt; ActiveRecord::Base</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :name, :presence =&gt; true</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :email, :uniqueness =&gt; true, :presence =&gt; true</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates :password, :length =&gt; {:minimum =&gt; 4}, :presence =&gt; true</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  before_create :encrypt_password</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def encrypt_password</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">    self.password = BCrypt::Password.create(self.password)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.valid_user(email, password)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">    user = User.find_by_email(email)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
+          
+          <code class="ruby">    if !user.nil? and self.correct_password?(user, password)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">      return user</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    else </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">      return nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">    end  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.correct_password?(user, password)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">    my_password = BCrypt::Password.new(user.password)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">    return my_password == password</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.forgot_password(email)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="30">
+          
+          
+          <code class="ruby">    user = User.find_by_email(email)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="31">
+          
+          
+          <code class="ruby">    random_password = Array.new(10).map { (65 + rand(58)).chr }.join</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="32">
+          
+          
+          <code class="ruby">    user.password = random_password</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="33">
+          
+          
+          <code class="ruby">    user.save!</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="34">
+          
+          
+          <code class="ruby">    UserMailer.create_and_deliver_password_change(user,random_password)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">end</code>
