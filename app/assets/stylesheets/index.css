@@ -47,6 +47,10 @@ a:hover {
 	margin: 10px;
 }
 
+strong {
+	font-weight: 700;
+}
+
 h2 {
 	font-size: 30px;
 	margin-bottom: 10px;	
@@ -118,6 +122,19 @@ input:-moz-placeholder {
 	font-size: 18px;
 	cursor: pointer;
 	margin: 10px auto;
+}
+
+.notice, .error {
+	width: auto;
+	background-color: #127cbb;
+	border-radius: 5px;
+	color: #fff;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.error {
+	background-color: #ba2c65;
 }
 
 .rbutton:hover {

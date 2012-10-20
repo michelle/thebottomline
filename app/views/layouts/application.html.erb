@@ -20,6 +20,8 @@
       <a class="nav" href="/support"><img src="images/support.png" vspace="5" /></a>
 
       <div id="content">
+	<% if !flash[:error].nil? then %><div class="error"><strong>Error:</strong> <%= flash[:error].html_safe %></div><% end %>
+        <% if !flash[:notice].nil? then %><div class="notice"><%= flash[:notice].html_safe %></div><% end %>
       	<%= yield %>
       </div>
 
