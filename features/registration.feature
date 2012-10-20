@@ -14,6 +14,7 @@ Feature: Registration
     And I press "Register"
     # We should allow users who don't want to give up their address to also register, but then during the sending save their address/stuff.
     Then I should see "Thanks for signing up! You're ready to send cards"
+    Then I am logged in
 
   Scenario: Email already exists
     Given I am not currently logged in
