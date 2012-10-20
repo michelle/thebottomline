@@ -15,8 +15,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	width: 600px;
 	height: 150px;
 	text-align: center;
-	padding: 50px;
-	padding-top: 100px;
+	padding: 20px;
+	height: 100%;
 	margin: auto;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
