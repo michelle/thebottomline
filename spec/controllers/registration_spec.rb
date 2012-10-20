@@ -44,7 +44,7 @@ describe RegisterController do
         @user.stub(:valid?).and_return false
         @user.stub(:errors).and_return(@fakeerror)
         post :create, @bad_params
-        response.should render_template 'index'
+        response.should redirect_to register_path
       end
       it 'should say \'give reasons for incomplete form\'' do
         User.stub(:new).and_return @user
