@@ -6,23 +6,60 @@ h2 {
 	
 }
 
-.rinput {
-	outline: 0;
-	border: 1px solid #ccc;
-	border-radius: 1px;
-	padding: 10px;
-	margin: 5px 0;
-	width: 100%;
+#register {
+	font-size: 18px;
+	width: 500px;
+	background-color: #fff;
 }
 
-.rinput:hover {
-	box-shadow: 0 0 5px #ccc;
+#register label {
+	line-height: 40px;
+}
+#register .speciallabel {
+	line-height: 20px;
+}
+
+.clearfix {
+	margin: 5px 0px;
+	width: auto;
+	height: 42px;
+	border: 1px solid #dce2e8;
+	clear: both;
+	background-color: #f1f5f8;
+	padding: 2px 2px 2px 10px;
+}
+
+.rinput {
+	height: 20px;
+	outline: 0;
+	border: 1px solid #dce2e8;
+	border-radius: 5px;
+	float: right;
+	padding: 10px;
+	width: 50%;
+	font-size: 18px;
+}
+
+.rinput:focus {
+	box-shadow: 0 0 5px #dce2e8;
 }
 
 .rbutton {
 	border-radius: 5px;
 	border: 1px solid #bf5454;
-	background-color: #cb6464
+	background-color: #cb6464;
+	text-shadow: 0px 2px 0px #bf5454;
+	color: #fff;
+	display: block;
+	width: 100px;
+	height: 40px;
+	font-size: 18px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.rbutton:hover {
+	background-color: #bf5454;
 }
 
 
