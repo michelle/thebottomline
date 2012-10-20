@@ -21,9 +21,4 @@ class RegisterController < ApplicationController
     end
   end
   
-  def destroy
-    session.delete :userid
-    flash[:notice] = 'Logged out successfully'
-  end
-
 end
