@@ -6,20 +6,20 @@ class RegisterController < ApplicationController
   
   def create
     @user = User.new params[:user]
-    valid = @user.valid?
+    @valid = @user.valid?
     errors = []
     if params[:confirm] != params[:user][:password]
       flash[:error] = errors << "Passwords do not match"
-      valid = false
+      @valid = false
     end
-    if not valid
+    if not @valid
       flash[:error] = @user.errors.full_messages.concat(errors).join "<br>"
       render "index"
     else
       flash[:notice] = "Thanks for signing up! You're ready to send cards"
       @user.save
       session[:userid] = @user.id
-      redirect_to dashboard_path
+      redirect_to welcome_path
     end
   end
   
