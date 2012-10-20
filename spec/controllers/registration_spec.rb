@@ -1,54 +1,80 @@
 require 'spec_helper'
 
-describe UsersController do
-  describe 'registering a user' do
-    it 'should check if the form is complete' do
+describe RegisterController do
+
+  describe 'registration page' do
+    it 'should render the registration page' do
+      get :new
+      response.should render_template 'index'
     end
+  end
+  
+  describe 'registering a user' do
+    before :each do
+      @user = mock()
+      @userid = 5
+      @user.stub(:id).and_return(@userid)
+      @good_params = {:user => {:password => 'good', :email => 'eric@test.com', :subscribed => "1", :name => 'eric'}, :confirm => 'good'}
+      @bad_params = {:user => {}, :confirm => 'bad'}
+      @fakeerror = mock()
+      @fakeerror.stub(:full_messages).and_return ["invalid entry", "bad data"]
+    end
+    
+    it 'should check if the form is complete' do
+      User.should_receive(:new).and_return @user
+      @user.should_receive(:valid?).and_return false
+      @user.stub(:errors).and_return(@fakeerror)
+      post :create, @bad_params
+    end
+    
+    
+    it 'should check if password and confirm password match' do
+      User.stub(:new).and_return @user
+      @user.stub(:valid?).and_return false
+      @user.stub(:errors).and_return(@fakeerror)
+      post :create, @bad_params
+      assigns :valid => false
+      flash[:error].should include 'Passwords do not match'
+    end
+  
+
     describe 'after incomplete form' do
       it 'should redirect user back to registration page' do
+        User.stub(:new).and_return @user
+        @user.stub(:valid?).and_return false
+        @user.stub(:errors).and_return(@fakeerror)
+        post :create, @bad_params
+        response.should render_template 'index'
       end
-      it 'should highlight the incomplete fields' do
-      end
-      it 'should say \'Please fill required fields\'' do
-      end
-    end
-    it 'should check if username exists' do
-    end
-    describe 'after preexisting username in username field' do
-      it 'should redirect user back to registration page' do
-      end
-      it 'should highlight the username field' do
-      end
-      it 'should say \'Username already exists\'' do
+      it 'should say \'give reasons for incomplete form\'' do
+        User.stub(:new).and_return @user
+        @user.stub(:valid?).and_return false
+        @user.should_receive(:errors).and_return(@fakeerror)
+        post :create, @bad_params
+        flash[:error].length.should be > 0
       end
     end
-    it 'should check if email exists' do
-    end
-    describe 'after preexisting email in email field' do
-      it 'should redirect user back to registration page' do
+    describe 'after successful form' do
+      it 'should set session with users id' do
+        User.stub(:new).and_return @user
+        @user.stub(:valid?).and_return true
+        @user.stub :save
+        post :create, @good_params
+        session[:userid].should eq @userid
       end
-      it 'should highlight the email field' do
+      it 'should flash a thanks message' do
+        User.stub(:new).and_return @user
+        @user.stub(:valid?).and_return true
+        @user.should_receive :save
+        post :create, @good_params
       end
-      it 'should say \'Email already exists\'' do
-      end
-    end
-    it 'should check if password and confirm password match' do
-    end
-    describe 'after passwords do not match' do
-      it 'should redirect user back to registration page' do
-      end
-      it 'should highlight the confirm password field' do
-      end
-      it 'should say \'Passwords don\'t match\'' do
-      end
-    end
-    it 'should create user' do
-    end
-    describe 'after successful registration' do
       it 'should redirect user to registration acknowledgement page' do
+        User.stub(:new).and_return @user
+        @user.stub(:valid?).and_return true
+        @user.stub :save
+        post :create, @good_params
+        response.should redirect_to welcome_path
       end 
-      it 'should display \'Send a reminder today!\'' do
-      end
     end
   end
 end  
