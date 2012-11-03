@@ -13,7 +13,7 @@ class LoginController < ApplicationController
     	flash[:notice] = "Welcome, <strong>" + @user.name + "</strong>!"
       session[:userid] = @user.id
       session[:name] = @user.name
-      redirect_to welcome_path
+      redirect_to send_path 
     end
   end
   
