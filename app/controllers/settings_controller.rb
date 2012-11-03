@@ -12,13 +12,14 @@ class SettingsController < ApplicationController
   def update
   	@current_user = User.find session[:userid]
   	@user = User.valid_user @current_user.email, params[:password]
+  	puts @current_user.password
   	if @user.nil?
   		flash[:error] = "Please enter your old password to change your details."
   		redirect_to settings_path
   		return
 		end
-		@user.name = params[:user][:name].nil? ? @user.name : params[:user][:name]
-		@user.password = params[:user][:password].nil? ? @user.password : params[:user][:password]
+		@user.name = params[:user][:name] == '' ? @user.name : params[:user][:name]
+		@user.password = params[:user][:password] == '' ? params[:password] : params[:user][:password]
 		@user.subscribed = params[:user][:subscribed]
     @valid = @user.valid?
     errors = []
