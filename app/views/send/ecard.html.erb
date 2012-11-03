@@ -1,0 +1,26 @@
+<div id="send">
+	<h1>Send <% @type == :ecard ? 'E-card' : 'Postcard' %></h1>
+<%= form_tag :action=> "create" do %>
+<div class="clearfix">
+<%= label_tag 'user[name]', 'Name'%>
+<%= text_field_tag('user[name]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :required => 'required'})%>  
+</div>
+<div class="clearfix">
+<%= label_tag 'user[email]', 'Email'%>
+<%= email_field_tag('user[email]', nil, {:class => 'rinput', :placeholder => 'colon@thebottomline.com', :required => 'required'})%>  
+</div>
+<div class="clearfix">
+<%= label_tag 'user[password]', 'Password'%>
+<%= password_field_tag('user[password]', nil, {:class => 'rinput', :required => 'required'})%>
+</div>
+<div class="clearfix">
+<%= label_tag 'confirm', 'Confirm Password'%>
+<%= password_field_tag('confirm', nil, {:class => 'rinput', :required => 'required'})%>
+</div>
+<div class="clearfix">
+<%= check_box_tag 'user[subscribed]'%>
+<%= label_tag 'user[subscribed]', '"Keep me informed with monthly newsletters!" -- We promise not to give out your email!', :class => 'speciallabel'%>
+</div>
+<%= submit_tag 'Register', :class => 'rbutton' %>
+<% end %>
+</div>

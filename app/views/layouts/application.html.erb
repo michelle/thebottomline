@@ -37,10 +37,11 @@
         <% if !flash[:notice].nil? then %><div class="notice"><%= flash[:notice].html_safe %></div><% end %>
       	<%= yield %>
       </div>
-<% if session[:userid].nil? then %>
+     <% if params[:controller] != 'send' then %>
     <div id="frontbutton">
 	    <a href="/send"><button class="large">Send a reminder today!</button></a>   
-    </div><% end %>
+    </div>
+    <% end %>
 
 
 <div id="copyright">&#169; 2012 The Bottom Line 2012. All rights reserved. The Bottom Line is not a substitute for medical advice. Please consult a medical specialist for support. Your privacy is important to The Bottom Line. Personal information you provide will never be sold to commercial interests.</div>

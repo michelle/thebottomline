@@ -93,6 +93,7 @@ a:hover {
 
 #navbar .usercontrol {
 	margin-left: 10px;
+	letter-spacing: 0px;
 }
 
 #navbar {
@@ -276,4 +277,27 @@ body
 	font-size: 15px;
 	line-height: 25px;
 	color: #164b73;
+}
+
+#reminder {
+	text-align: left;
+}
+
+#reminder img {
+	float: left;
+	margin-right: 20px;
+}
+
+.tinytext {
+	font-size: 11px;
+	line-height: 18px;;
+}
+
+#buttons {
+	text-align: center;
+	padding: 30px 20px 0px 20px;
+}
+
+#buttons button {
+	margin: 5px 5px 0px 5px;
 }
