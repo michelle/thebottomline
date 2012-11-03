@@ -16,6 +16,10 @@ Given /^I have registered with The Bottom Line$/ do
 	User.create!({ :name => 'Michelle',
 							   :email => 'michellebu@berkeley.edu',
 							   :password => 'hunter2' })
+	@user = User.new
+	@user.name = 'Michelle'
+	@user.email = 'michellebu@berkeley.edu'
+	@user.password = 'hunter2'
 end
 
 Given /^I have logged in$/ do
