@@ -50,15 +50,46 @@ a:hover {
 
 .loggedin {
 	background-color: #aae0f3;
-	padding: 5px 10px;
+	padding: 5px;
+	bottom: 0px;
+	right: 0px;
+	display: inline-block;
+	position: relative;
+	width: 150px;
+	line-height: 16px;
 }
 
 .username {
-	margin: 10px 0px !important;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 100%;
+	text-align: center;
 }
 
 .nav {
 	margin: 10px;
+}
+
+#navbar {
+	position: relative;
+}
+
+.loggedin ul {
+	position: absolute;
+	display: none;
+}
+
+#navbar .loggedin:hover ul {
+	display: block;
+	top: 41px;
+}
+
+.loggedin li {
+	line-height: 25px;
+	border-top: 1px solid #fff;
+	background-color: #000;
+	padding: 10px;
 }
 
 strong {
