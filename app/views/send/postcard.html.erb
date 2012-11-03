@@ -10,17 +10,17 @@
 <%= text_field_tag('card[to_name]', nil, {:class => 'rinput', :placeholder => 'My Kitten', :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'address_street', 'Recipient Address'%>
-<%= text_field_tag('', nil, {:class => 'rinput', :placeholder => '123 Poop Lane', :required => 'required'})%>  
+<%= label_tag 'card[address_street]', 'Recipient Address'%>
+<%= text_field_tag('card[address_street]', nil, {:class => 'rinput', :placeholder => '123 Poop Lane', :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'address_city', 'City, State, ZIP Code'%>
+<%= label_tag 'card[address_city]', 'City, State, ZIP Code'%>
 <div class="right">
-<%= text_field_tag('address_city', nil, {:class => 'rinput small', :placeholder => 'Berkeley', :required => 'required'})%>  
-<%= text_field_tag('address_state', nil, {:class => 'rinput smaller', :placeholder => 'CA', :required => 'required'})%>  
-<%= text_field_tag('address_zip', nil, {:class => 'rinput small', :placeholder => '94709', :required => 'required'})%>  
+<%= text_field_tag('card[address_city]', nil, {:class => 'rinput small', :placeholder => 'Berkeley', :required => 'required'})%>  
+<%= text_field_tag('card[address_state]', nil, {:class => 'rinput smaller', :placeholder => 'CA', :required => 'required'})%>  
+<%= text_field_tag('card[address_zip]', nil, {:class => 'rinput small', :placeholder => '94709', :required => 'required'})%>  
 </div>
-<% #select_tag('address_state', options_for_select(us_states), {:class => 'rinput dropdown', :placeholder => 'Berkeley', :required => 'required'})%>  
+<% #select_tag('card[address_state]', options_for_select(us_states), {:class => 'rinput dropdown', :placeholder => 'Berkeley', :required => 'required'})%>  
 </div>
 <div class="clearfix">
 <%= label_tag 'card[message]', 'Personal Message'%>
