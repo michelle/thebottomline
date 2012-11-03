@@ -156,15 +156,15 @@ input:-moz-placeholder {
 	color: #b3d8dd;
 }
 
-#login, #register, #settings {
+#login, #register, #settings, #send {
 	font-size: 18px;
 	letter-spacing: -1px;
 }
 
-#login label, #register label, #settings label {
+#login label, #register label, #settings label, #send label {
 	line-height: 40px;
 }
-#login .speciallabel, #register .speciallabel, #settings .speciallabel {
+#login .speciallabel, #register .speciallabel, #settings .speciallabel, #send .speciallabel {
 	font-size: 14px;
 }
 
@@ -172,7 +172,7 @@ input:-moz-placeholder {
 	text-align: left;
 }
 
-#register form, #settings form {
+#register form, #settings form, #send form {
 	text-align: left;
 	border: 1px solid #cbe7eb;
 	background-color: #fff;
@@ -186,8 +186,22 @@ input:-moz-placeholder {
 	margin: 0 auto;
 }
 
-#settings .rinput {
+#settings .rinput, #send .rinput {
 	width: 400px;
+}
+
+.small {
+	width: 148px !important;
+	float: none !important;
+}
+
+.smaller {
+	width: 51px !important;
+	float: none !important;
+}
+
+.right {
+	float: right;
 }
 
 #forgot .clearfix, #login .clearfix {
@@ -252,6 +266,14 @@ input:-moz-placeholder {
 	background-color: #ba2c65;
 }
 
+.error a {
+	color: #8a1443;
+}
+
+.error a:hover {
+	color: #fff;
+}
+
 .usercontrol:hover, .rbutton:hover {
 	background-color: #ba2c65;
 }
@@ -314,4 +336,13 @@ body
 
 #buttons button {
 	margin: 5px 5px 0px 5px;
+}
+
+#send textarea {
+	resize: none;
+	height: 100px;
+}
+
+.clear {
+	clear: both;
 }

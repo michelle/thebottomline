@@ -1,26 +1,28 @@
 <div id="send">
-	<h1>Send <% @type == :ecard ? 'E-card' : 'Postcard' %></h1>
-<%= form_tag :action=> "create" do %>
+<h2>Send an E-card</h2>
+<!-- TODO(michelle): Add a loop for past cards once model is done. -->
+<%= form_tag :action=> "ecard_create" do %>
 <div class="clearfix">
-<%= label_tag 'user[name]', 'Name'%>
-<%= text_field_tag('user[name]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :required => 'required'})%>  
+<%= label_tag 'card[from_name]', 'Name'%>
+<%= text_field_tag('card[from_name]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :value => @user.nil? ? '' : @user.name, :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'user[email]', 'Email'%>
-<%= email_field_tag('user[email]', nil, {:class => 'rinput', :placeholder => 'colon@thebottomline.com', :required => 'required'})%>  
+<%= label_tag 'email', 'Email'%>
+<%= email_field_tag('email', nil, {:class => 'rinput', :placeholder => 'colon@thebottomline.com', :value => @user.nil? ? '' : @user.email, :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'user[password]', 'Password'%>
-<%= password_field_tag('user[password]', nil, {:class => 'rinput', :required => 'required'})%>
+<%= label_tag 'card[to_name]', 'Recipient Name'%>
+<%= text_field_tag('card[to_name]', nil, {:class => 'rinput', :placeholder => 'My Kitten', :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'confirm', 'Confirm Password'%>
-<%= password_field_tag('confirm', nil, {:class => 'rinput', :required => 'required'})%>
+<%= label_tag 'card[address]', 'Recipient Email'%>
+<%= email_field_tag('card[address]', nil, {:class => 'rinput', :placeholder => 'kitten@cats.com', :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= check_box_tag 'user[subscribed]'%>
-<%= label_tag 'user[subscribed]', '"Keep me informed with monthly newsletters!" -- We promise not to give out your email!', :class => 'speciallabel'%>
+<%= label_tag 'card[message]', 'Personal Message'%>
+<%= text_area_tag('card[message]', nil, {:class => 'rinput', :placeholder => 'Getting screened is anything “butt” optional.', :required => 'required'})%>  
 </div>
-<%= submit_tag 'Register', :class => 'rbutton' %>
+<div class="clear"></div>
+<%= submit_tag 'Send my card!', :class => 'rbutton' %>
 <% end %>
 </div>
