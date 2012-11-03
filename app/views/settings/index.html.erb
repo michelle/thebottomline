@@ -1,0 +1,22 @@
+<div id="settings">
+<h2>Settings</h2>
+<%= form_tag :action=> "update" do %>
+<div class="clearfix">
+<%= label_tag 'user[name]', 'Name'%>
+<%= text_field_tag('user[name]', nil, {:class => 'rinput', :placeholder => 'Type New Username Here', :required => 'required'})%>  
+</div>
+<div class="clearfix">
+<%= label_tag 'user[password]', 'Password'%>
+<%= password_field_tag('user[password]', nil, {:class => 'rinput', :placeholder => 'Type New Password Here', :required => 'required'})%>
+</div>
+<div class="clearfix">
+<%= label_tag 'confirm', 'Confirm Password'%>
+<%= password_field_tag('confirm', nil, {:class => 'rinput', :placeholder => 'Retype New Password Here', :required => 'required'})%>
+</div>
+<div class="clearfix">
+<%= check_box_tag 'user[subscribed]', 1, @subscribed == true ? true : false%>
+<%= label_tag 'user[subscribed]', '"Keep me informed with monthly newsletters!" -- We promise not to give out your email!', :class => 'speciallabel'%>
+</div>
+<%= submit_tag 'Update Settings', :class => 'sButton' %>
+<% end %>
+</div>

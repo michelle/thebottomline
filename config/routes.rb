@@ -57,6 +57,9 @@ Thebottomline::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   match 'register' => 'register#new', :via => :get, :as => :register
   match 'register' => 'register#create', :via => :post
+
+  match 'settings' => 'settings#index', :via => :get, :as => :settings
+  match 'settings' => 'settings#create', :via => :post
   
   match 'logout' => 'login#logout', :via => :get, :as => :logout
   match 'login' => 'login#index', :via => :get, :as => :login
