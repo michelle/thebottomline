@@ -75,7 +75,7 @@ describe RegisterController do
         @user.stub(:valid?).and_return true
         @user.stub :save
         post :create, @good_params
-        response.should redirect_to welcome_path
+        response.should redirect_to send_path 
       end 
     end
   end

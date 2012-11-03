@@ -62,7 +62,7 @@ describe LoginController do
     it 'should redirect if valid credentials' do
       User.should_receive(:valid_user).and_return @user
       post :login, @params
-      response.should redirect_to welcome_path
+      response.should redirect_to send_path 
       flash[:notice].should eq 'Welcome, <strong>' + @user.name + '</strong>!'
     end
   end
