@@ -59,13 +59,21 @@ Thebottomline::Application.routes.draw do
   match 'register' => 'register#create', :via => :post
 
   match 'settings' => 'settings#index', :via => :get, :as => :settings
-  match 'settings' => 'settings#create', :via => :post
+  match 'settings' => 'settings#update', :via => :post
   
   match 'logout' => 'login#logout', :via => :get, :as => :logout
   match 'login' => 'login#index', :via => :get, :as => :login
   match 'login' => 'login#login', :via => :post
   match 'forgot' => 'login#forgot_password', :via => :get, :as => :forgot
   match 'forgot' => 'login#send_password', :via => :post
+  match 'forgot' => 'login#send_password', :via => :post
+  
+  # Send controller
+  match 'send' => 'send#index', :via => :get, :as => :send
+  match 'send/postcard' => 'send#postcard_new', :via => :get, :as => :send_postcard
+  match 'send/postcard' => 'send#postcard_create', :via => :post
+  match 'send/ecard' => 'send#ecard_new', :via => :get, :as => :send_ecard
+  match 'send/ecard' => 'send#ecard_create', :via => :post
   
   root :to => 'welcome#index', :as => :welcome
   
