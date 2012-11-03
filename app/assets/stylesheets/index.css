@@ -20,27 +20,32 @@ a:hover {
 }
 
 #content {
+	z-index: 100;
 	border-radius: 5px;
 	background-color: rgba(255,255,255,0.8);
 	width: 700px;
 	text-align: center;
-	padding: 20px;
+	padding: 20px 20px 40px 20px;
 	height: 100%;
 	min-height: 250px;
-	margin: 10px auto;
+	margin: 10px auto 0px auto;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
 
 #frontbutton {
-	margin: 20px;
+	z-index: 99;
+	margin: -25px 0px 0px 0px;
 }
 
 #copyright {
 	width: 600px;
 	font-size: 12px;
-	color: #fff;
-	margin: 0 auto;
+	color: #107a95;
+	width: 700px;
+	margin: 20px auto 0px auto;
 	line-height: 15px;
+	background-color: #aae0f3;
+	padding: 10px 20px;;
 }
 
 .nav {
@@ -149,7 +154,7 @@ input:-moz-placeholder {
 
 .notice, .error {
 	width: auto;
-	background-color: #127cbb;
+	background-color: #107a95;
 	border-radius: 5px;
 	color: #fff;
 	margin-bottom: 20px;
@@ -164,6 +169,30 @@ input:-moz-placeholder {
 	background-color: #ba2c65;
 }
 
+.large {
+	background-color: #1aa6cb;
+	border: 1px solid #107a95;
+	color: #fff;
+	font-size: 20px;
+	font-family: Helvectica, Arial; 
+	font-weight: 700;
+	line-height: 20px;
+	border-radius: 5px;
+	padding: 15px 30px;
+	cursor: pointer;
+	text-shadow: 0px 2px 0px #107a95;
+}
+
+button, a {
+	transition: background-color 200ms;
+	-moz-transition: background-color 200ms; /* Firefox 4 */
+	-webkit-transition: background-color 200ms; /* Safari and Chrome */
+	-o-transition: background-color 200ms; /* Opera */
+}
+
+.large:hover {
+	background-color: #107a95;
+}
 
 
 body 
