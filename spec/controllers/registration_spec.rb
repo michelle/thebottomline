@@ -13,7 +13,9 @@ describe RegisterController do
     before :each do
       @user = mock()
       @userid = 5
+      @username = 'michelle'
       @user.stub(:id).and_return(@userid)
+			@user.stub(:name).and_return @username
       @good_params = {:user => {:password => 'good', :email => 'eric@test.com', :subscribed => "1", :name => 'eric'}, :confirm => 'good'}
       @bad_params = {:user => {}, :confirm => 'bad'}
       @fakeerror = mock()
