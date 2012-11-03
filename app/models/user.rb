@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     user = User.find_by_email(email)
     if user.nil? then return false end
     random_password = Array.new(10).map { (65 + rand(58)).chr }.join
-    user.password = BCrypt::Password.create(random_password)
+    user.password = random_password
     user.save!
     UserMailer.password_change(user,random_password).deliver
     return true
