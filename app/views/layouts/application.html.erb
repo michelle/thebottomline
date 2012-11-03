@@ -20,7 +20,7 @@
       <!--a class="nav" href="/support"><img src="images/support.png" vspace="5" /></a-->
       <% if !session[:userid].nil? then %><div class="loggedin">Welcome, <div class="username"><strong><%= session[:name].split[0] %></div></strong>
 	      <ul>
-	      	      <li>Settings</li>
+		      <a href="/settings"><li>Settings</li></a>
 		      <a href="/logout"><li>Logout</li></a>
 	      </ul>
       </div>
