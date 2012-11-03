@@ -13,7 +13,7 @@ Feature: Login and logout
     And I fill in "user_email" with "michellebu@berkeley.edu"
     And I fill in "user_password" with "hunter2"
     And I press "Login"
-    Then I should be on the send a reminder page 
+    Then I should be on the reminders page 
     Then I should see "Welcome, Michelle!"
     Then I am logged in
 
