@@ -15,7 +15,7 @@
       <!--td width="82" height="161" align="center"><img src="images/pinterest-icon.png" width="20" class="floatRightClear" vspace="20"><a href="https://www.facebook.com/signthebottomline"><img src="images/facebook-icon.png"  width="20" class="floatRightClear" vspace="20"></a><a href="https://twitter.com/#!/signbottomline"><img src="images/twitter-icon.png" width="20" class="floatRightClear" vspace="20"></a></td-->
       <div id="navbar">
       <a class="nav item" href="/mission">Mission</a>
-      <a class="nav item" href="/about">About</a>
+      <a class="nav item" href="/Support">Support</a>
       <a class="nav" href="/"><img src="images/logo.png" width="372" height="161" /></a>
       <!--a class="nav" href="/support"><img src="images/support.png" vspace="5" /></a-->
       <% if !session[:userid].nil? then %><div class="loggedin">Welcome, <div class="username"><strong><%= session[:name].split[0] %></div></strong>
@@ -26,7 +26,7 @@
       </div>
       <% end %>
       <% if session[:userid].nil? then %>
-      	      <a class="nav item" href="/help">Help</a>
+      <a class="nav item" href="/about">About</a>
       <a class="nav usercontrol" href="/login">Sign in</a><% end %>
  </div>
 
@@ -43,7 +43,7 @@
     </div><% end %>
 
 
-<div id="copyright">&#169; 2012 The Bottom Line 2012. All rights reserved. The Bottom Line is not a substitute for medical advice. Please consult a medical specialist for support. Your privacy is important to The Bottom Line. Personal information you provide will never be sold to commercial interests. Like these designs? Visit <a href="http://www.IHeartGuts.com">IHeartGuts.com</a></div>
+<div id="copyright">&#169; 2012 The Bottom Line 2012. All rights reserved. The Bottom Line is not a substitute for medical advice. Please consult a medical specialist for support. Your privacy is important to The Bottom Line. Personal information you provide will never be sold to commercial interests.</div>
 </div>
 </body>
 </html>
