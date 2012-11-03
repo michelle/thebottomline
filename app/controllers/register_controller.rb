@@ -20,6 +20,7 @@ class RegisterController < ApplicationController
       @user.save
       session[:userid] = @user.id
       session[:name] = @user.name
+      UserMailer.register_email(@user).deliver
       redirect_to send_path
     end
   end

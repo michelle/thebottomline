@@ -4,7 +4,9 @@ class UserMailer < ActionMailer::Base
   def register_email(user)
     @user = user
     @url  = "http://thebottomline.herokuapp.com/" + login_path
-    mail(:to => user.email, :subject => "Check out WhatsUpYourButt")
+    mail(:to => user.email, 
+         :subject => "Check out WhatsUpYourButt", 
+         :content_type => 'text/html')
   end
 
   def password_change(user,random_password)
