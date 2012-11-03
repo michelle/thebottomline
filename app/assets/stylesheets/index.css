@@ -38,18 +38,22 @@ a:hover {
 }
 
 #copyright {
+	background-color: #9cd8ed;
 	width: 600px;
 	font-size: 12px;
 	color: #107a95;
 	width: 700px;
 	margin: 20px auto 0px auto;
 	line-height: 15px;
-	background-color: #aae0f3;
 	padding: 10px 20px;;
+	border-top: 1px solid #c7ebf8;
+	border-bottom: 1px solid #87cae1;
 }
 
 .loggedin {
-	background-color: #aae0f3;
+	background-color: #9cd8ed;
+	border-top: 1px solid #c7ebf8;
+	border-bottom: 1px solid #87cae1;
 	padding: 5px;
 	bottom: 0px;
 	right: 0px;
@@ -57,7 +61,13 @@ a:hover {
 	position: relative;
 	width: 150px;
 	line-height: 16px;
+	cursor: pointer;
 }
+
+.loggedin:hover {
+	background-color: #aae0f3;
+}
+
 
 .username {
 	overflow: hidden;
@@ -78,18 +88,27 @@ a:hover {
 .loggedin ul {
 	position: absolute;
 	display: none;
+	width: 160px;
+	margin-left: -5px;
 }
 
 #navbar .loggedin:hover ul {
 	display: block;
-	top: 41px;
+	top: 43px;;
 }
 
 .loggedin li {
+	color: #419bbb;
+	text-shadow: 0px 2px 0px #c7ebf8;
 	line-height: 25px;
-	border-top: 1px solid #fff;
-	background-color: #000;
-	padding: 10px;
+	border-top: 1px solid #c7ebf8;
+	border-bottom: 1px solid #87cae1;
+	background-color: #9cd8ed;
+	padding: 5px;
+}
+
+.loggedin li:hover {
+	background-color: #aae0f3;
 }
 
 strong {
