@@ -1,0 +1,2 @@
+class Ecard < Card
+end

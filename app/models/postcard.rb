@@ -1,0 +1,2 @@
+class Postcard < Card
+end
