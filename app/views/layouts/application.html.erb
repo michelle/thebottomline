@@ -18,10 +18,10 @@
       <a class="nav item" href="/Support">Support</a>
       <a class="nav" href="/"><img src="images/logo.png" width="372" height="161" /></a>
       <!--a class="nav" href="/support"><img src="images/support.png" vspace="5" /></a-->
-      <% if !session[:userid].nil? then %><div class="loggedin">Welcome, <div class="username"><strong><%= session[:name].split[0] %></div></strong>
+      <% if !session[:userid].nil? then %><div class="loggedin">Welcome, <div class="username"><strong><%= session[:name].split[0].slice(0,1).capitalize + session[:name].split[0].slice(1..-1) %></div></strong>
 	      <ul>
 		      <a href="/settings"><li>Settings</li></a>
-		      <a href="/logout"><li>Logout</li></a>
+		      <a href="/logout"><li class="logout">Logout</li></a>
 	      </ul>
       </div>
       <% end %>

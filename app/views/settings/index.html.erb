@@ -2,21 +2,25 @@
 <h2>Settings</h2>
 <%= form_tag :action=> "update" do %>
 <div class="clearfix">
-<%= label_tag 'user[name]', 'Name'%>
-<%= text_field_tag('user[name]', nil, {:class => 'rinput', :placeholder => 'Type New Username Here', :required => 'required'})%>  
+	<%= label_tag 'user[name]', 'Name <span class="tinytext">(Optional)</span>'.html_safe %>
+<%= text_field_tag('user[name]', nil, {:class => 'rinput', :placeholder => 'Uranus', :value => session[:name]})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'user[password]', 'Password'%>
-<%= password_field_tag('user[password]', nil, {:class => 'rinput', :placeholder => 'Type New Password Here', :required => 'required'})%>
+	<%= label_tag 'password', 'Your Password <span class="tinytext">(Required)</span>'.html_safe%>
+<%= password_field_tag('password', nil, {:class => 'rinput', :placeholder => 'Enter your password', :required => 'required'})%>
 </div>
 <div class="clearfix">
-<%= label_tag 'confirm', 'Confirm Password'%>
-<%= password_field_tag('confirm', nil, {:class => 'rinput', :placeholder => 'Retype New Password Here', :required => 'required'})%>
+<%= label_tag 'user[password]', 'New Password <span class="tinytext">(Optional)</span>'.html_safe%>
+<%= password_field_tag('user[password]', nil, {:class => 'rinput', :placeholder => 'Choose a new password'})%>
 </div>
 <div class="clearfix">
-<%= check_box_tag 'user[subscribed]', 1, @subscribed == true ? true : false%>
+<%= label_tag 'confirm', 'Confirm Password <span class="tinytext">(Optional)</span>'.html_safe%>
+<%= password_field_tag('confirm', nil, {:class => 'rinput', :placeholder => 'Retype new password'})%>
+</div>
+<div class="clearfix">
+<%= check_box_tag 'user[subscribed]', 1, @subscribed == true %>
 <%= label_tag 'user[subscribed]', '"Keep me informed with monthly newsletters!" -- We promise not to give out your email!', :class => 'speciallabel'%>
 </div>
-<%= submit_tag 'Update Settings', :class => 'sButton' %>
+<%= submit_tag 'Update Settings', :class => 'rbutton' %>
 <% end %>
 </div>

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :password, :length => {:minimum => 4}, :presence => true
 
   before_create :encrypt_password
+  before_save :encrypt_password
 
   def encrypt_password
     self.password = BCrypt::Password.create(self.password)

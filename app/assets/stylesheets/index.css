@@ -51,6 +51,7 @@ a:hover {
 }
 
 .loggedin {
+	border-radius: 5px;
 	background-color: #9cd8ed;
 	border-top: 1px solid #c7ebf8;
 	border-bottom: 1px solid #87cae1;
@@ -66,6 +67,7 @@ a:hover {
 
 .loggedin:hover {
 	background-color: #aae0f3;
+	border-radius: 5px 5px 0px 0px;
 }
 
 
@@ -105,11 +107,18 @@ a:hover {
 	display: none;
 	width: 160px;
 	margin-left: -5px;
+	box-shadow: 0 0 15px #419bbb;
+	background-color: #9cd8ed;
+	border-radius: 0px 0px 5px 5px;
 }
 
 #navbar .loggedin:hover ul {
 	display: block;
-	top: 43px;;
+	top: 43px;
+}
+
+.logout {
+	border-radius: 0px 0px 5px 5px;
 }
 
 .loggedin li {
@@ -118,7 +127,6 @@ a:hover {
 	line-height: 25px;
 	border-top: 1px solid #c7ebf8;
 	border-bottom: 1px solid #87cae1;
-	background-color: #9cd8ed;
 	padding: 5px;
 }
 
@@ -148,14 +156,15 @@ input:-moz-placeholder {
 	color: #b3d8dd;
 }
 
-#login, #register {
+#login, #register, #settings {
 	font-size: 18px;
+	letter-spacing: -1px;
 }
 
-#login label, #register label {
+#login label, #register label, #settings label {
 	line-height: 40px;
 }
-#login .speciallabel, #register .speciallabel {
+#login .speciallabel, #register .speciallabel, #settings .speciallabel {
 	font-size: 14px;
 }
 
@@ -163,7 +172,7 @@ input:-moz-placeholder {
 	text-align: left;
 }
 
-#register form {
+#register form, #settings form {
 	text-align: left;
 	border: 1px solid #cbe7eb;
 	background-color: #fff;
@@ -175,6 +184,10 @@ input:-moz-placeholder {
 	width: 480px;
 	float: none;
 	margin: 0 auto;
+}
+
+#settings .rinput {
+	width: 400px;
 }
 
 #forgot .clearfix, #login .clearfix {
@@ -289,6 +302,7 @@ body
 }
 
 .tinytext {
+	color: #bc2d67;
 	font-size: 11px;
 	line-height: 18px;;
 }
