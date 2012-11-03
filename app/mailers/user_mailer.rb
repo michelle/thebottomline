@@ -11,9 +11,8 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url  = "http://thebottomline.herokuapp.com/" + login_path
     @random_password = random_password
-    mail(:to => user.email, :subject => "Forgot Password The Bottom Line") do |format|
-      format.html
-      format.text
-    end
+    mail(:to => user.email, 
+         :subject => "Forgot Password The Bottom Line", 
+         :content_type => 'text/html')
   end
 end
