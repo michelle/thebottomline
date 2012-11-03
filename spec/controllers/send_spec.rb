@@ -148,7 +148,7 @@ describe SendController do
         post :postcard_create, @params
         flash[:notice].length.should be > 0
       end
-      it 'should redirect to  send index if card is valid' do 
+      it 'should redirect to send index if card is valid' do 
         User.stub(:find_by_id).and_return(@user)
         @user.stub(:can_send_postcard).and_return(true)
         @postcard.stub(:valid?).and_return(true)
