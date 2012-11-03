@@ -48,6 +48,15 @@ a:hover {
 	padding: 10px 20px;;
 }
 
+.loggedin {
+	background-color: #aae0f3;
+	padding: 5px 10px;
+}
+
+.username {
+	margin: 10px 0px !important;
+}
+
 .nav {
 	margin: 10px;
 }
