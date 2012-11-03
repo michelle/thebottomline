@@ -28,7 +28,7 @@ module NavigationHelpers
     when /^the send an e-card page$/
     	'/send/postcard'
 
-    when /^the send a reminder page$/
+    when /^the reminders page$/
     	'/send'
 
     when /^the e-card acknowledgement page$/
