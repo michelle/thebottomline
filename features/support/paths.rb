@@ -23,6 +23,12 @@ module NavigationHelpers
     	'/register'
 
     when /^the send an e-card page$/
+    	'/send/ecard'
+
+    when /^the send an e-card page$/
+    	'/send/postcard'
+
+    when /^the send a reminder page$/
     	'/send'
 
     when /^the e-card acknowledgement page$/
