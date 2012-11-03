@@ -16,6 +16,9 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+    when /^the settings page$/
+        '/settings'
+
     when /^the registration page$/
     	'/register'
 
