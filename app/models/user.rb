@@ -35,4 +35,9 @@ class User < ActiveRecord::Base
     UserMailer.password_change(user,random_password).deliver
     return true
   end
+  
+  def self.subscribed?(userId)
+    return User.find(userId).subscribed
+  end  
+    
 end
