@@ -24,7 +24,8 @@ class SendController < ApplicationController
     else
       flash[:notice] = "Yay! Your E-card has been sent"
       @ecard.save
-      # TODO(ericz): Actually send the e-card.
+      
+      EcardMailer.ecard_email(@ecard).deliver
       redirect_to send_path
     end
   end

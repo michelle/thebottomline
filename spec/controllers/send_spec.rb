@@ -39,6 +39,8 @@ describe SendController do
         @fakeerror = mock()
         @fakeerror.stub(:full_messages).and_return ["invalid entry", "bad data"]
         Ecard.stub(:new).with(@params[:card]).and_return(@ecard)
+        @mailer = mock()
+        @mailer.stub :deliver
       end
       it 'should warn users if card is not valid' do
         @ecard.should_receive(:valid?).and_return(false)
@@ -53,14 +55,23 @@ describe SendController do
         response.should redirect_to send_ecard_path
       end
       it 'should flash and save card if card is valid' do
-        @ecard.should_receive(:valid?).and_return(true)
+        @ecard.stub(:valid?).and_return(true)
         @ecard.should_receive(:save)
+        EcardMailer.stub(:ecard_email).and_return(@mailer)
+        post :ecard_create, @params
+        flash[:notice].length.should be > 0
+      end
+      it 'should actually send card if card is valid' do
+        @ecard.stub(:valid?).and_return(true)
+        @ecard.stub(:save)
+        EcardMailer.should_receive(:ecard_email).with(@ecard).and_return(@mailer)
         post :ecard_create, @params
         flash[:notice].length.should be > 0
       end
       it 'should redirect to send index if card is valid' do 
         @ecard.stub(:valid?).and_return(true)
         @ecard.stub(:save)
+        EcardMailer.stub(:ecard_email).and_return(@mailer)
         post :ecard_create, @params
         response.should redirect_to send_path
       end
