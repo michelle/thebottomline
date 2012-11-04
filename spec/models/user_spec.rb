@@ -43,11 +43,11 @@ describe User do
       user.ecards.create(:recipient => "grandma", :address => "koolgrandma103@gmail.com", :sender => "grandson")
       ecards = user.get_recent_ecards(1)
       ecards.count.should == 1
-      ecards[0].recipient.should be "grandma"
+      ecards[0].recipient.should == "grandma"
       user.ecards.create(:recipient => "grandpa", :address => "koolgrandpa103@gmail.com", :sender => "grandson")
       ecards = user.get_recent_ecards(1)
       ecards.count.should == 1
-      ecards[0].recipient.should be "grandpa"
+      ecards[0].recipient.should == "grandpa"
     end
   end
   describe 'Get recent postcards' do
@@ -56,11 +56,11 @@ describe User do
       user.postcards.create(:recipient => "grandma", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
       postcards = user.get_recent_postcards(1)
       postcards.count.should == 1
-      postcards[0].recipient.should be "grandma"
+      postcards[0].recipient.should == "grandma"
       user.postcards.create(:recipient => "grandpa", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
       postcards = user.get_recent_postcards(1)
       postcards.count.should == 1
-      postcards[0].recipient.should be "grandpa"
+      postcards[0].recipient.should == "grandpa"
     end
   end
   describe 'Check if user can send more postcards' do
