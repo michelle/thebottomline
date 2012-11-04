@@ -2,9 +2,10 @@ require 'spec_helper'
 require 'bcrypt'
 
 describe User do
-  user = User.create!(:name=>"President Skroob",
-                      :email=>"skroobydoo@spaceballs.com",
-                      :password=>"12345")
+  user = FactoryGirl.create(:user,
+                            :name=>"President Skroob",
+                            :email=>"skroobydoo@spaceballs.com",
+                            :password=>"12345")
   user2 = User.create!(:name=>"granny deffo",
                       :email=>"coolgranny@gmail.com",
                       :password=>"12345")                  
@@ -35,13 +36,13 @@ describe User do
     end
   end
   describe 'forgot email' do
-    it 'should' do
+    it 'should not have old password as the new password' do
       User.stub(:find_by_email).and_return(user)
       UserMailer.stub(:create_and_deliver_password_change)
       old_user_password = user.password
       User.forgot_password(user.email)
       user_in_database = User.find(user.id)
-      user_in_database.password.should_not == old_user_password
+      user_in_database.password.should_not be old_user_password
     end
   end
   describe 'get recent ecards' do

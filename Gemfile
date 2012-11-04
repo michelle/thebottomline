@@ -17,6 +17,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'bcrypt-ruby'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 group :production do
   gem 'pg'
