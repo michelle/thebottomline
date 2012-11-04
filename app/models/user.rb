@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true, :presence => true
   validates :password, :length => {:minimum => 4}, :presence => true
 
-  has_many :cards
+  has_many :ecards
+  has_many :postcards
 
   before_save :encrypt_password
 
@@ -44,14 +45,17 @@ class User < ActiveRecord::Base
 
   def get_recent_ecards(amount)
     #returns Array of last amount ecards
+    return self.ecards.find(:all, :order => 'created_at desc', :limit => amount)
   end
 
   def get_recent_postcards(amount)
     #returns Array of last amount postcards
+    return self.postcards.find(:all, :order => 'created_at desc', :limit => amount)
   end
 
   def can_send_postcard?
     #return boolean: true if sent less than 2 postcards
+    return self.postcards.count < 2
   end
 
 end

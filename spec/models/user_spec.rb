@@ -37,4 +37,10 @@ describe User do
       user_in_database.password.should_not == old_user_password
     end
   end
+  describe 'Get recent ecards' do
+  end
+  describe 'Get recent postcards' do
+  end
+  describe 'Check if user can send more postcards' do
+  end
 end
