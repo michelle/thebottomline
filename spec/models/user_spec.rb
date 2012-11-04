@@ -8,7 +8,8 @@ describe User do
                             :password=>"12345")
   user2 = User.create!(:name=>"granny deffo",
                       :email=>"coolgranny@gmail.com",
-                      :password=>"12345")                  
+                      :password=>"12345",
+                      :subscribed=>true)                  
   describe 'adding a user' do
     it 'should encrypt the given password in the database' do
       user_in_database = User.find(user.id)
@@ -38,11 +39,18 @@ describe User do
   describe 'forgot email' do
     it 'should not have old password as the new password' do
       User.stub(:find_by_email).and_return(user)
-      UserMailer.stub(:create_and_deliver_password_change)
+      #UserMailer.stub(:password_change)
       old_user_password = user.password
       User.forgot_password(user.email)
       user_in_database = User.find(user.id)
       user_in_database.password.should_not be old_user_password
+    end
+  end
+  describe 'get subscription flag' do
+    it 'should let caller know if user is subscribed' do
+      User.stub(:find_by_email).and_return(user2)
+      user_in_database = User.find(user2.id)
+      user_in_database.subscribed.should == true
     end
   end
   describe 'get recent ecards' do
