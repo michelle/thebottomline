@@ -6,13 +6,20 @@ describe User do
                             :name=>"President Skroob",
                             :email=>"skroobydoo@spaceballs.com",
                             :password=>"12345")
-  describe 'Adding a user' do
+  user2 = User.create!(:name=>"granny deffo",
+                      :email=>"coolgranny@gmail.com",
+                      :password=>"12345")                  
+  describe 'adding a user' do
     it 'should encrypt the given password in the database' do
       user_in_database = User.find(user.id)
       user_in_database.password.should_not == "12345"
     end
+    it 'should capitalize the user\'s name' do
+      user2_in_database = User.find(user2.id)
+      user2_in_database.name.should == "Granny Deffo"
+    end
   end
-  describe 'Validating a password' do
+  describe 'validating a password' do
     describe 'Incorrect password' do
       it 'should return nil' do
         User.stub(:find_by_email).and_return(user)
@@ -20,7 +27,7 @@ describe User do
         valid_user.should == nil
       end
     end
-    describe 'Correct password' do
+    describe 'correct password' do
       it 'should return the user' do
         User.stub(:find_by_email).and_return(user)
         valid_user = User.valid_user("skroobydoo@spaceballs.com", "12345")
@@ -28,17 +35,17 @@ describe User do
       end
     end
   end
-  describe 'User forgot email' do
-    it 'should' do
+  describe 'forgot email' do
+    it 'should not have old password as the new password' do
       User.stub(:find_by_email).and_return(user)
       UserMailer.stub(:create_and_deliver_password_change)
       old_user_password = user.password
       User.forgot_password(user.email)
       user_in_database = User.find(user.id)
-      user_in_database.password.should_not == old_user_password
+      user_in_database.password.should_not be old_user_password
     end
   end
-  describe 'Get recent ecards' do
+  describe 'get recent ecards' do
     it 'should get the most recently created AMOUNT ecards' do
       user.get_recent_ecards(1).count.should == 0
       user.ecards.create(:recipient => "grandma", :address => "koolgrandma103@gmail.com", :sender => "grandson")
@@ -51,7 +58,7 @@ describe User do
       ecards[0].recipient.should == "grandpa"
     end
   end
-  describe 'Get recent postcards' do
+  describe 'get recent postcards' do
     it 'should get the most recently created AMOUNT postcards' do
       user.get_recent_postcards(1).count.should == 0
       user.postcards.create(:recipient => "grandma", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
@@ -64,7 +71,7 @@ describe User do
       postcards[0].recipient.should == "grandpa"
     end
   end
-  describe 'Check if user can send more postcards' do
+  describe 'check if user can send more postcards' do
     it 'should return true if user has less than 2 postcards, false o/w' do
       user.can_send_postcard?.should be true
       user.postcards.create(:recipient => "grandma", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
