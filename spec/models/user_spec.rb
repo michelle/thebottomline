@@ -2,9 +2,10 @@ require 'spec_helper'
 require 'bcrypt'
 
 describe User do
-  user = User.create!(:name=>"President Skroob",
-                      :email=>"skroobydoo@spaceballs.com",
-                      :password=>"12345")
+  user = FactoryGirl.create(:user,
+                            :name=>"President Skroob",
+                            :email=>"skroobydoo@spaceballs.com",
+                            :password=>"12345")
   describe 'Adding a user' do
     it 'should encrypt the given password in the database' do
       user_in_database = User.find(user.id)
