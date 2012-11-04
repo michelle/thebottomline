@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true, :presence => true
   validates :password, :length => {:minimum => 4}, :presence => true
 
+  has_many :cards
+
   before_create :encrypt_password
 
   def encrypt_password
@@ -34,5 +36,17 @@ class User < ActiveRecord::Base
     user.save!
     UserMailer.password_change(user,random_password).deliver
     return true
+  end
+
+  def get_recent_ecards(amount)
+    #returns Array of last amount ecards
+  end
+
+  def get_recent_postcards(amount)
+    #returns Array of last amount postcards
+  end
+
+  def can_send_postcard?
+    #return boolean: true if sent less than 2 postcards
   end
 end
