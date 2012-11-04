@@ -10,9 +10,14 @@ class User < ActiveRecord::Base
   has_many :postcards
 
   before_save :encrypt_password
+  before_save :captialize_names
 
   def encrypt_password
     self.password = BCrypt::Password.create(self.password)
+  end
+  
+  def captialize_names
+    self.name = self.name.split.map{|x| x.capitalize}.join(" ")
   end
 
   def self.valid_user(email, password)
