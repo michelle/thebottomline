@@ -38,18 +38,100 @@ a:hover {
 }
 
 #copyright {
+	background-color: #9cd8ed;
 	width: 600px;
 	font-size: 12px;
 	color: #107a95;
 	width: 700px;
 	margin: 20px auto 0px auto;
 	line-height: 15px;
-	background-color: #aae0f3;
 	padding: 10px 20px;;
+	border-top: 1px solid #c7ebf8;
+	border-bottom: 1px solid #87cae1;
+}
+
+.loggedin {
+	border-radius: 5px;
+	background-color: #9cd8ed;
+	border-top: 1px solid #c7ebf8;
+	border-bottom: 1px solid #87cae1;
+	padding: 5px;
+	bottom: 0px;
+	right: 0px;
+	display: inline-block;
+	position: relative;
+	width: 150px;
+	line-height: 16px;
+	cursor: pointer;
+}
+
+.loggedin:hover {
+	background-color: #aae0f3;
+	border-radius: 5px 5px 0px 0px;
+}
+
+
+.username {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 100%;
+	text-align: center;
 }
 
 .nav {
-	margin: 10px;
+	margin: 6px;
+	color: #fff;
+	text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+	font-size: 20px;
+	line-height: 30px;
+	letter-spacing: -2px;
+	font-weight: 700;
+}
+
+.nav:hover {
+	color: #e6f1f8;
+}
+
+#navbar .usercontrol {
+	margin-left: 10px;
+	letter-spacing: 0px;
+}
+
+#navbar {
+	position: relative;
+}
+
+.loggedin ul {
+	position: absolute;
+	display: none;
+	width: 160px;
+	margin-left: -5px;
+	box-shadow: 0 0 15px #419bbb;
+	background-color: #9cd8ed;
+	border-radius: 0px 0px 5px 5px;
+}
+
+#navbar .loggedin:hover ul {
+	display: block;
+	top: 43px;
+}
+
+.logout {
+	border-radius: 0px 0px 5px 5px;
+}
+
+.loggedin li {
+	color: #419bbb;
+	text-shadow: 0px 2px 0px #c7ebf8;
+	line-height: 25px;
+	border-top: 1px solid #c7ebf8;
+	border-bottom: 1px solid #87cae1;
+	padding: 5px;
+}
+
+.loggedin li:hover {
+	background-color: #aae0f3;
 }
 
 strong {
@@ -74,14 +156,15 @@ input:-moz-placeholder {
 	color: #b3d8dd;
 }
 
-#login, #register {
+#login, #register, #settings, #send {
 	font-size: 18px;
+	letter-spacing: -1px;
 }
 
-#login label, #register label {
+#login label, #register label, #settings label, #send label {
 	line-height: 40px;
 }
-#login .speciallabel, #register .speciallabel {
+#login .speciallabel, #register .speciallabel, #settings .speciallabel, #send .speciallabel {
 	font-size: 14px;
 }
 
@@ -89,7 +172,7 @@ input:-moz-placeholder {
 	text-align: left;
 }
 
-#register form {
+#register form, #settings form, #send form {
 	text-align: left;
 	border: 1px solid #cbe7eb;
 	background-color: #fff;
@@ -101,6 +184,24 @@ input:-moz-placeholder {
 	width: 480px;
 	float: none;
 	margin: 0 auto;
+}
+
+#settings .rinput, #send .rinput {
+	width: 400px;
+}
+
+.small {
+	width: 148px !important;
+	float: none !important;
+}
+
+.smaller {
+	width: 51px !important;
+	float: none !important;
+}
+
+.right {
+	float: right;
 }
 
 #forgot .clearfix, #login .clearfix {
@@ -141,12 +242,12 @@ input:-moz-placeholder {
 	font-size: 18px;
 	cursor: pointer;
 	display: block;
-	margin: 15px auto 10px auto;
+	margin: 10px auto;
 }
 
 .usercontrol {
 	display: inline;
-	padding: 5px;
+	padding: 5px 10px;
 }
 .usercontrol:hover {
 	color: #fff;
@@ -163,6 +264,14 @@ input:-moz-placeholder {
 
 .error {
 	background-color: #ba2c65;
+}
+
+.error a {
+	color: #8a1443;
+}
+
+.error a:hover {
+	color: #fff;
 }
 
 .usercontrol:hover, .rbutton:hover {
@@ -203,4 +312,37 @@ body
 	font-size: 15px;
 	line-height: 25px;
 	color: #164b73;
+}
+
+#reminder {
+	text-align: left;
+}
+
+#reminder img {
+	float: left;
+	margin-right: 20px;
+}
+
+.tinytext {
+	color: #bc2d67;
+	font-size: 11px;
+	line-height: 18px;;
+}
+
+#buttons {
+	text-align: center;
+	padding: 30px 20px 0px 20px;
+}
+
+#buttons button {
+	margin: 5px 5px 0px 5px;
+}
+
+#send textarea {
+	resize: none;
+	height: 100px;
+}
+
+.clear {
+	clear: both;
 }

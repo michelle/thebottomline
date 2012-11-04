@@ -13,13 +13,13 @@ Feature: Login and logout
     And I fill in "user_email" with "michellebu@berkeley.edu"
     And I fill in "user_password" with "hunter2"
     And I press "Login"
-    Then I should be on the welcome page
+    Then I should be on the reminders page 
     Then I should see "Welcome, Michelle!"
     Then I am logged in
 
   Scenario: Logging out
     Given I have logged in
-    When I follow "Sign out"
+    When I follow "Logout"
     Then I should see "Logged out successfully"
     Then I am not currently logged in
 

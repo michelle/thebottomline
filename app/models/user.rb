@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :cards
 
-  before_create :encrypt_password
+  before_save :encrypt_password
 
   def encrypt_password
     self.password = BCrypt::Password.create(self.password)
@@ -32,10 +32,14 @@ class User < ActiveRecord::Base
     user = User.find_by_email(email)
     if user.nil? then return false end
     random_password = Array.new(10).map { (65 + rand(58)).chr }.join
-    user.password = BCrypt::Password.create(random_password)
+    user.password = random_password
     user.save!
     UserMailer.password_change(user,random_password).deliver
     return true
+  end
+
+  def self.subscribed?(userId)
+    return User.find(userId).subscribed
   end
 
   def get_recent_ecards(amount)
@@ -49,4 +53,5 @@ class User < ActiveRecord::Base
   def can_send_postcard?
     #return boolean: true if sent less than 2 postcards
   end
+
 end

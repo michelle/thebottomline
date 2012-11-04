@@ -1,0 +1,32 @@
+<div id="send">
+<h2>Send a Postcard</h2>
+<%= form_tag :action=> "postcard_create" do %>
+<div class="clearfix">
+<%= label_tag 'card[from_name]', 'Name'%>
+<%= text_field_tag('card[from_name]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :value => @user.name, :required => 'required'})%>  
+</div>
+<div class="clearfix">
+<%= label_tag 'card[to_name]', 'Recipient Name'%>
+<%= text_field_tag('card[to_name]', nil, {:class => 'rinput', :placeholder => 'My Kitten', :required => 'required'})%>  
+</div>
+<div class="clearfix">
+<%= label_tag 'card[address_street]', 'Recipient Address'%>
+<%= text_field_tag('card[address_street]', nil, {:class => 'rinput', :placeholder => '123 Poop Lane', :required => 'required'})%>  
+</div>
+<div class="clearfix">
+<%= label_tag 'card[address_city]', 'City, State, ZIP Code'%>
+<div class="right">
+<%= text_field_tag('card[address_city]', nil, {:class => 'rinput small', :placeholder => 'Berkeley', :required => 'required'})%>  
+<%= text_field_tag('card[address_state]', nil, {:class => 'rinput smaller', :placeholder => 'CA', :required => 'required'})%>  
+<%= text_field_tag('card[address_zip]', nil, {:class => 'rinput small', :placeholder => '94709', :required => 'required'})%>  
+</div>
+<% #select_tag('card[address_state]', options_for_select(us_states), {:class => 'rinput dropdown', :placeholder => 'Berkeley', :required => 'required'})%>  
+</div>
+<div class="clearfix">
+<%= label_tag 'card[message]', 'Personal Message'%>
+<%= text_area_tag('card[message]', nil, {:class => 'rinput', :placeholder => 'Getting screened is anything “butt” optional.', :required => 'required'})%>  
+</div>
+<div class="clear"></div>
+<%= submit_tag 'Send my card!', :class => 'rbutton' %>
+<% end %>
+</div>

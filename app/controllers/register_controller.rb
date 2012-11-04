@@ -19,7 +19,9 @@ class RegisterController < ApplicationController
       flash[:notice] = "Thanks for signing up! You're ready to send cards"
       @user.save
       session[:userid] = @user.id
-      redirect_to welcome_path
+      session[:name] = @user.name
+      UserMailer.register_email(@user).deliver
+      redirect_to send_path
     end
   end
   
