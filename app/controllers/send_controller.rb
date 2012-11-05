@@ -16,6 +16,7 @@ class SendController < ApplicationController
   end
   
   def ecard_create
+  	@user = User.find_by_id(session[:userid])
     @ecard = Ecard.new params[:card]
     @valid = @ecard.valid?
     if not @valid
@@ -23,7 +24,10 @@ class SendController < ApplicationController
       redirect_to send_ecard_path
     else
       flash[:notice] = "Yay! Your E-card has been sent"
-      @ecard.save
+      if !@user.nil?
+				@user.ecards.push(@ecard)
+				@user.save
+			end
       
       EcardMailer.ecard_email(@ecard).deliver
       redirect_to send_path
@@ -63,7 +67,8 @@ class SendController < ApplicationController
       redirect_to send_postcard_path
     else
       flash[:notice] = "Yay! Your postcard has been sent"
-      @postcard.save
+      @user.postcards.push(@postcard)
+      @user.save
       # TODO(ericz): Actually save the file as a CSV of sorts.
       redirect_to send_path
     end
@@ -126,7 +131,6 @@ class SendController < ApplicationController
       ['WY', 'WY']
     ]
   end
-
 end
 
 
