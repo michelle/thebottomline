@@ -25,6 +25,32 @@ describe LoginController do
     end
   end
   
+  describe 'forgot password' do
+    before :each do
+      @params = {:email => 'test'}
+    end
+    it 'should render lostpassword page' do
+      get :forgot_password
+      response.should render_template "lostpassword"
+    end
+    it 'should check if able to reset password' do
+      User.should_receive(:forgot_password).with(@params[:email])
+      post :send_password, @params
+    end
+    it 'should flash and redirect if password reset' do
+      User.stub(:forgot_password).and_return(true)
+      post :send_password, @params
+      flash[:notice].should include 'Password successfully sent'
+      response.should redirect_to welcome_path
+    end
+    it 'should flash and redirect if password could not be reset' do
+      User.stub(:forgot_password).and_return(false)
+      post :send_password, @params
+      flash[:error].length.should be > 0
+      response.should redirect_to forgot_path
+    end
+  end
+  
   describe 'log in a user' do
     before :each do
       @user = mock()
