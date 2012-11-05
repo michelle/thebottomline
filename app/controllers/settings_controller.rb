@@ -1,23 +1,23 @@
 class SettingsController < ApplicationController 
   def index
-    if (session[:userid] != nil)
-    	@user = User.find session[:userid]
+    @user = User.find_by_id session[:userid]
+    if (not @user.nil?)
 			@subscribed = @user.subscribed?
 			render "index"
     else
-			redirect_to welcome_path
+			redirect_to login_path
     end
   end 
 
   def update
-  	@current_user = User.find session[:userid]
+  	@current_user = User.find_by_id session[:userid]
   	@user = User.valid_user @current_user.email, params[:password]
   	if @user.nil?
   		flash[:error] = "Please enter your old password to change your details."
   		redirect_to settings_path
   		return
 		end
-		@user.name = params[:user][:name] == '' ? @user.name : params[:user][:name]
+    @user.name = params[:user][:name]
 		@user.password = params[:user][:password] == '' ? params[:password] : params[:user][:password]
 		@user.subscribed = params[:user][:subscribed]
     @valid = @user.valid?
@@ -36,5 +36,4 @@ class SettingsController < ApplicationController
       redirect_to settings_path
     end     
   end
-
 end
