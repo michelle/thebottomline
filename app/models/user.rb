@@ -50,12 +50,12 @@ class User < ActiveRecord::Base
 
   def get_recent_ecards(amount)
     #returns Array of last amount ecards
-    return self.ecards.find(:all, :order => 'created_at desc', :limit => amount)
+    return self.ecards.find(:all, :order => 'updated_at desc', :limit => amount)
   end
 
   def get_recent_postcards(amount)
     #returns Array of last amount postcards
-    return self.postcards.find(:all, :order => 'created_at desc', :limit => amount)
+    return self.postcards.find(:all, :order => 'updated_at desc', :limit => amount)
   end
 
   def can_send_postcard?

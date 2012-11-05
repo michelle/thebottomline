@@ -2,12 +2,12 @@
 <h2>Send a Postcard</h2>
 <%= form_tag :action=> "postcard_create" do %>
 <div class="clearfix">
-<%= label_tag 'card[from_name]', 'Name'%>
-<%= text_field_tag('card[from_name]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :value => @user.name, :required => 'required'})%>  
+	<%= label_tag 'card[sender]', 'Name'%>
+<%= text_field_tag('card[sender]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :value => @user.name, :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'card[to_name]', 'Recipient Name'%>
-<%= text_field_tag('card[to_name]', nil, {:class => 'rinput', :placeholder => 'My Kitten', :required => 'required'})%>  
+<%= label_tag 'card[recipient]', 'Recipient Name'%>
+<%= text_field_tag('card[recipient]', nil, {:class => 'rinput', :placeholder => 'My Kitten', :required => 'required'})%>  
 </div>
 <div class="clearfix">
 <%= label_tag 'card[address_street]', 'Recipient Address'%>

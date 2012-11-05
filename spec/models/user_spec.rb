@@ -55,7 +55,7 @@ describe User do
     end
   end
   describe 'get recent ecards' do
-    it 'should get the most recently created AMOUNT ecards' do
+    it 'should get the most recently updated AMOUNT ecards' do
       @user.get_recent_ecards(1).count.should == 0
       @user.ecards.create(:recipient => "grandma", :address => "koolgrandma103@gmail.com", :sender => "grandson")
       ecards = @user.get_recent_ecards(1)
@@ -68,7 +68,7 @@ describe User do
     end
   end
   describe 'get recent postcards' do
-    it 'should get the most recently created AMOUNT postcards' do
+    it 'should get the most recently updated AMOUNT postcards' do
       @user.get_recent_postcards(1).count.should == 0
       @user.postcards.create(:recipient => "grandma", :address_street => "2316 Haste St", :address_city => "Berkeley", :address_state => "CA", :address_zip => "94704", :sender => "grandson")
       postcards = @user.get_recent_postcards(1)
