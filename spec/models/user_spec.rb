@@ -70,11 +70,11 @@ describe User do
   describe 'get recent postcards' do
     it 'should get the most recently created AMOUNT postcards' do
       @user.get_recent_postcards(1).count.should == 0
-      @user.postcards.create(:recipient => "grandma", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
+      @user.postcards.create(:recipient => "grandma", :address_street => "2316 Haste St", :address_city => "Berkeley", :address_state => "CA", :address_zip => "94704", :sender => "grandson")
       postcards = @user.get_recent_postcards(1)
       postcards.count.should == 1
       postcards[0].recipient.should == "grandma"
-      @user.postcards.create(:recipient => "grandpa", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
+      @user.postcards.create(:recipient => "grandpa", :address_street => "2316 Haste St", :address_city => "Berkeley", :address_state => "CA", :address_zip => "94704", :sender => "grandson")
       postcards = @user.get_recent_postcards(1)
       postcards.count.should == 1
       postcards[0].recipient.should == "grandpa"
@@ -83,9 +83,9 @@ describe User do
   describe 'check if user can send more postcards' do
     it 'should return true if user has less than 2 postcards, false o/w' do
       @user.can_send_postcard?.should be true
-      @user.postcards.create(:recipient => "grandma", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
+      @user.postcards.create(:recipient => "grandma", :address_street => "2316 Haste St", :address_city => "Berkeley", :address_state => "CA", :address_zip => "94704", :sender => "grandson")
       @user.can_send_postcard?.should be true
-      @user.postcards.create(:recipient => "grandpa", :address => "2316 Haste St, Berkeley, CA 94704", :sender => "grandson")
+      @user.postcards.create(:recipient => "grandpa", :address_street => "2316 Haste St", :address_city => "Berkeley", :address_state => "CA", :address_zip => "94704", :sender => "grandson")
       @user.can_send_postcard?.should be false
     end
   end
