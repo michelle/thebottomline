@@ -158,7 +158,6 @@ input:-moz-placeholder {
 
 #login, #register, #settings, #send {
 	font-size: 18px;
-	letter-spacing: -1px;
 }
 
 #login label, #register label, #settings label, #send label {
