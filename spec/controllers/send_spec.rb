@@ -107,7 +107,7 @@ describe SendController do
       end
       it 'should redirect users if exceed card sending limit for account' do
         User.stub(:find_by_id).and_return(@user)
-        @user.should_receive(:can_send_postcard).and_return(false)
+        @user.should_receive(:can_send_postcard?).and_return(false)
         get :postcard_new
         flash[:error].length.should be > 0
         response.should redirect_to send_path
@@ -115,7 +115,7 @@ describe SendController do
       it 'should find recent postcards if logged in' do
         session[:userid] = @userid
         User.should_receive(:find_by_id).with(@userid).and_return(@user)
-        @user.stub(:can_send_postcard).and_return(true)
+        @user.stub(:can_send_postcard?).and_return(true)
         @user.should_receive(:get_recent_postcards).with(SendController::RECENT_COUNT).and_return(@fakerecent)
         get :postcard_new
         assigns @recent => @fakerecent
@@ -123,7 +123,7 @@ describe SendController do
       it 'should render postcard form for valid users' do
         session[:userid] = @userid
         User.stub(:find_by_id).and_return(@user)
-        @user.stub(:can_send_postcard).and_return(true)
+        @user.stub(:can_send_postcard?).and_return(true)
         @user.stub(:get_recent_postcards).and_return(@fakerecent)
         get :postcard_new
         response.should render_template :postcard
@@ -149,14 +149,14 @@ describe SendController do
       it 'should redirect users if exceed card sending limit for account' do
         session[:userid] = @userid
         User.stub(:find_by_id).and_return(@user)
-        @user.should_receive(:can_send_postcard).and_return(false)
+        @user.should_receive(:can_send_postcard?).and_return(false)
         post :postcard_create, @params
         flash[:error].length.should be > 0
         response.should redirect_to send_path
       end
       it 'should warn users if card is not valid' do
         User.stub(:find_by_id).and_return(@user)
-        @user.stub(:can_send_postcard).and_return(true)
+        @user.stub(:can_send_postcard?).and_return(true)
         @postcard.should_receive(:valid?).and_return(false)
         @postcard.stub(:errors).and_return(@fakeerror)
         post :postcard_create, @params
@@ -164,7 +164,7 @@ describe SendController do
       end
       it 'should redirect to send postcard page if card is not valid' do
         User.stub(:find_by_id).and_return(@user)
-        @user.stub(:can_send_postcard).and_return(true)
+        @user.stub(:can_send_postcard?).and_return(true)
         @postcard.stub(:valid?).and_return(false)
         @postcard.stub(:errors).and_return(@fakeerror)
         post :postcard_create, @params
@@ -172,7 +172,7 @@ describe SendController do
       end
       it 'should flash and save card if card is valid' do
         User.stub(:find_by_id).and_return(@user)
-        @user.stub(:can_send_postcard).and_return(true)
+        @user.stub(:can_send_postcard?).and_return(true)
         @postcard.should_receive(:valid?).and_return(true)
         @user.should_receive(:save)
         @user.stub(:postcards).and_return(@pc)
@@ -191,7 +191,7 @@ describe SendController do
       end
       it 'should redirect to send index if card is valid' do 
         User.stub(:find_by_id).and_return(@user)
-        @user.stub(:can_send_postcard).and_return(true)
+        @user.stub(:can_send_postcard?).and_return(true)
         @postcard.stub(:valid?).and_return(true)
         @user.stub(:save)
         @user.stub(:postcards).and_return(@pc)

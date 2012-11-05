@@ -23,7 +23,7 @@ class SendController < ApplicationController
       flash[:error] = @ecard.errors.full_messages.join "<br>"
       redirect_to send_ecard_path
     else
-      flash[:notice] = "Yay! Your E-card has been sent"
+      flash[:notice] = "<img class='left' src='/images/trucktransparent.png' width='50px'>You're the sh*t! Your E-card has been sent"
       if !@user.nil?
 				@user.ecards.push(@ecard)
 				@user.save
@@ -40,7 +40,7 @@ class SendController < ApplicationController
       flash[:error] = "You must be logged in to send postcards. <a href=\"#{register_path}\">Register here</a>"
       redirect_to login_path
       return
-    elsif not @user.can_send_postcard
+    elsif not @user.can_send_postcard?
       flash[:error] = "You've already reached the limit of two postcards per year. <a href=\"#{send_ecard_path}\">Send an ecard instead</a>"
       redirect_to send_path
       return
@@ -55,7 +55,7 @@ class SendController < ApplicationController
       flash[:error] = "You must be logged in to send postcards. <a href=\"#{register_path}\">Register here</a>"
       redirect_to login_path
       return
-    elsif not @user.can_send_postcard
+    elsif not @user.can_send_postcard?
       flash[:error] = "You've already reached the limit of two postcards per year. <a href=\"#{send_ecard_path}\">Send an ecard instead</a>"
       redirect_to send_path
       return

@@ -255,7 +255,7 @@ input:-moz-placeholder {
 
 .notice, .error {
 	width: auto;
-	background-color: #107a95;
+	background-color: #1AA6CB;
 	border-radius: 5px;
 	color: #fff;
 	margin-bottom: 20px;
@@ -323,6 +323,11 @@ body
 	margin-right: 20px;
 }
 
+.left {
+	float: left;
+	margin-right: 20px;
+}
+
 .tinytext {
 	color: #bc2d67;
 	font-size: 11px;
@@ -345,4 +350,71 @@ body
 
 .clear {
 	clear: both;
+}
+
+
+#recentcards {
+	text-align: left;
+	border: 1px solid #cbe7eb;
+	background-color: rgba(255, 255, 255, 0.6);
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.card {
+	font-size: 12px;
+	line-height: 14px;
+
+	width: 115px;
+	height: 100px;
+	background-color: #D03C78;
+	margin: 5px;
+	float: left;
+	color: #fff;
+	cursor: pointer;
+	position: relative;
+	padding: 5px;
+	border-radius: 5px;
+	border-bottom: 1px solid #BA2C65;
+	text-shadow: 0px 2px 0px #BA2C65;
+
+}
+
+.cardinner {
+	overflow: scroll;
+	text-overflow: ellipsis;
+	height: 65px;
+}
+
+.card:hover {
+	box-shadow: 0 0 15px #D03C78;
+}
+
+
+.timedate {
+	width: 115px;
+	padding-bottom: 5px;
+	padding-top: 3px;
+	border-top: 1px dotted #fff;
+	bottom: 0px;
+	position: absolute;
+	opacity: 0.7;
+}
+
+h3 {
+	font-weight: 700;
+	font-size: 20px;
+	margin: -5px;
+	margin-bottom: 5px;
+	padding: 10px;
+	color: #fff;
+	text-shadow: 0px 2px 2px #A3C4C9;
+	background-color: #cbe7eb;
+}
+
+h4 {
+	color: #82123f;
+	font-weight: 700;
+	text-shadow: none;
+	margin-bottom: 3px;
 }
