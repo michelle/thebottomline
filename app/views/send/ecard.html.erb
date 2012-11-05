@@ -1,18 +1,20 @@
 <div id="send">
 <h2>Send an E-card</h2>
-<!-- TODO(michelle): Add a loop for past cards once model is done. -->
+<% @recent.each do |card| %>
+	<%= card.updated_at %>
+<% end %>
 <%= form_tag :action=> "ecard_create" do %>
 <div class="clearfix">
-<%= label_tag 'card[from_name]', 'Name'%>
-<%= text_field_tag('card[from_name]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :value => @user.nil? ? '' : @user.name, :required => 'required'})%>  
+<%= label_tag 'card[sender]', 'Name'%>
+<%= text_field_tag('card[sender]', nil, {:class => 'rinput', :placeholder => 'Your Colon', :value => @user.nil? ? '' : @user.name, :required => 'required'})%>  
 </div>
 <div class="clearfix">
 <%= label_tag 'email', 'Email'%>
 <%= email_field_tag('email', nil, {:class => 'rinput', :placeholder => 'colon@thebottomline.com', :value => @user.nil? ? '' : @user.email, :required => 'required'})%>  
 </div>
 <div class="clearfix">
-<%= label_tag 'card[to_name]', 'Recipient Name'%>
-<%= text_field_tag('card[to_name]', nil, {:class => 'rinput', :placeholder => 'My Kitten', :required => 'required'})%>  
+<%= label_tag 'card[recipient]', 'Recipient Name'%>
+<%= text_field_tag('card[recipient]', nil, {:class => 'rinput', :placeholder => 'My Kitten', :required => 'required'})%>  
 </div>
 <div class="clearfix">
 <%= label_tag 'card[address]', 'Recipient Email'%>
