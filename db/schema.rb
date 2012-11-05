@@ -11,10 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121019225913) do
+ActiveRecord::Schema.define(:version => 20121105002351) do
+
+  create_table "ecards", :force => true do |t|
+    t.string   "sender"
+    t.string   "recipient"
+    t.text     "address"
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "postcards", :force => true do |t|
+    t.string   "sender"
+    t.string   "recipient"
+    t.text     "address_street"
+    t.text     "address_city"
+    t.text     "address_state"
+    t.text     "address_zip"
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
     t.string   "name"
     t.string   "email"
     t.string   "password"
