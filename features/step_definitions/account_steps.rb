@@ -1,5 +1,5 @@
 Given /^I am not currently logged in$/ do
-	step 'I should not see "Sign out"'
+	step 'I should not see "Logout"'
 end
 
 Given /^I am logged in$/ do
