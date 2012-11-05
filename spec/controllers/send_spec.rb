@@ -181,7 +181,7 @@ describe SendController do
       end
       it 'should add to postcards if card is valid' do 
         User.stub(:find_by_id).and_return(@user)
-        @user.stub(:can_send_postcard).and_return(true)
+        @user.stub(:can_send_postcard?).and_return(true)
         @postcard.stub(:valid?).and_return(true)
         @user.stub(:save)
         @user.should_receive(:postcards).and_return(@pc)
