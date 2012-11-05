@@ -7,11 +7,11 @@
     <h1>Hello, <%= @ecard.recipient %>.</h1>
     <p>
       This is a placeholder for an ecard.
-      
+      <br><br>
       Here's a message:
       <%= @ecard.message %>
-      
-      From: <%= @ecard.sender %>
+      <br><br>
+      From: <%= @ecard.sender %><!--, TODO: add email to db  @ecard.user.email -->
       
     </p>
     <p>Thanks!</p>

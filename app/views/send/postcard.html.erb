@@ -1,5 +1,36 @@
+<% content_for :head do %>
+	<script type="text/javascript">
+	$(function() {
+			$('.recent').click(function() {
+				var card = $(this);
+				$('#card_sender').val(card.attr('data-sender'));
+				$('#card_recipient').val(card.attr('data-recipient'));
+				$('#card_address_street').val(card.attr('data-address-street'));
+				$('#card_address_city').val(card.attr('data-address-city'));
+				$('#card_address_state').val(card.attr('data-address-state'));
+				$('#card_address_zip').val(card.attr('data-address-zip'));
+				$('#card_message').val(card.attr('data-message'));
+			});
+	});
+	</script>
+<% end %>
 <div id="send">
 <h2>Send a Postcard</h2>
+<% if @recent.length > 0 %>
+	<div id="recentcards">
+	<h3>Use a recently sent card!</h3>
+	<% @recent.each do |card| %>
+		<div class='recent card' data-recipient='<%= card.recipient %>' data-message='<%= card.message %>' data-address-zip='<%= card.address_zip %>' data-address-state='<%= card.address_state %> 'data-address-city='<%= card.address_city %>' data-address-street='<%= card.address_street %>' data-sender='<%= card.sender %>'>
+			<h4>To: <%= card.recipient %></h4>
+			<div class="cardinner">
+				<%= card.message %>
+			</div>
+			<div class="timedate"><%= card.updated_at.strftime("Sent on %m/%d/%Y") %></div>
+		</div>
+	<% end %>
+	<div class="clear"></div>
+	</div>
+<% end %>
 <%= form_tag :action=> "postcard_create" do %>
 <div class="clearfix">
 	<%= label_tag 'card[sender]', 'Name'%>
