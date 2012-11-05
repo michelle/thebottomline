@@ -41,6 +41,16 @@ describe SendController do
         Ecard.stub(:new).with(@params[:card]).and_return(@ecard)
         @mailer = mock()
         @mailer.stub :deliver
+        @ec = mock()
+        @ec.stub(:push)
+      end
+      it 'should set uesrs if logged in' do
+        session[:userid] = @userid
+        User.should_receive(:find_by_id).with(@userid).and_return(@user)
+        @ecard.stub(:valid?).and_return(false)
+        @ecard.stub(:errors).and_return(@fakeerror)
+        post :ecard_create, @params
+        assigns :user => @user
       end
       it 'should warn users if card is not valid' do
         @ecard.should_receive(:valid?).and_return(false)
@@ -56,21 +66,28 @@ describe SendController do
       end
       it 'should flash and save card if card is valid' do
         @ecard.stub(:valid?).and_return(true)
-        @ecard.should_receive(:save)
+        EcardMailer.stub(:ecard_email).and_return(@mailer)
+        post :ecard_create, @params
+        flash[:notice].length.should be > 0
+      end
+      it 'should add card to ecards and save if card is valid and logged in' do
+        User.stub(:find_by_id).and_return(@user)
+        @ecard.stub(:valid?).and_return(true)
+        @user.should_receive(:save)
+        @user.should_receive(:ecards).and_return(@ec)
+        @ec.should_receive(:push).with(@ecard)
         EcardMailer.stub(:ecard_email).and_return(@mailer)
         post :ecard_create, @params
         flash[:notice].length.should be > 0
       end
       it 'should actually send card if card is valid' do
         @ecard.stub(:valid?).and_return(true)
-        @ecard.stub(:save)
         EcardMailer.should_receive(:ecard_email).with(@ecard).and_return(@mailer)
         post :ecard_create, @params
         flash[:notice].length.should be > 0
       end
       it 'should redirect to send index if card is valid' do 
         @ecard.stub(:valid?).and_return(true)
-        @ecard.stub(:save)
         EcardMailer.stub(:ecard_email).and_return(@mailer)
         post :ecard_create, @params
         response.should redirect_to send_path
@@ -118,6 +135,8 @@ describe SendController do
         @params = {}
         @fakeerror = mock()
         @fakeerror.stub(:full_messages).and_return ["invalid entry", "bad data"]
+        @pc = mock()
+        @pc.stub(:push)
         Postcard.stub(:new).with(@params[:card]).and_return(@postcard)
       end
       it 'should redirect users if not logged in' do
@@ -155,15 +174,27 @@ describe SendController do
         User.stub(:find_by_id).and_return(@user)
         @user.stub(:can_send_postcard).and_return(true)
         @postcard.should_receive(:valid?).and_return(true)
-        @postcard.should_receive(:save)
+        @user.should_receive(:save)
+        @user.stub(:postcards).and_return(@pc)
         post :postcard_create, @params
         flash[:notice].length.should be > 0
+      end
+      it 'should add to postcards if card is valid' do 
+        User.stub(:find_by_id).and_return(@user)
+        @user.stub(:can_send_postcard).and_return(true)
+        @postcard.stub(:valid?).and_return(true)
+        @user.stub(:save)
+        @user.should_receive(:postcards).and_return(@pc)
+        @pc.should_receive(:push).with(@postcard)
+        post :postcard_create, @params
+        response.should redirect_to send_path
       end
       it 'should redirect to send index if card is valid' do 
         User.stub(:find_by_id).and_return(@user)
         @user.stub(:can_send_postcard).and_return(true)
         @postcard.stub(:valid?).and_return(true)
-        @postcard.stub(:save)
+        @user.stub(:save)
+        @user.stub(:postcards).and_return(@pc)
         post :postcard_create, @params
         response.should redirect_to send_path
       end

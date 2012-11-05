@@ -2,9 +2,8 @@ require 'spec_helper'
  
 describe EcardMailer do
   describe 'ecard sending' do
-    let(:ecard) { mock_model(Ecard, :from_name => 'Eric',
-                                   :email => 'eric@test.com',
-                                   :to_name => 'Granny', 
+    let(:ecard) { mock_model(Ecard, :sender => 'Eric',
+                                   :recipient => 'Granny', 
                                    :address => 'koolgranny@email.com',
                                    :message => 'test!') }
     let(:mail) { EcardMailer.ecard_email(ecard) }
@@ -27,8 +26,8 @@ describe EcardMailer do
     #ensure that the @ecard variable appears in the email body
     it 'assigns @ecard values' do
       mail.body.encoded.should match(ecard.message)
-      mail.body.encoded.should match(ecard.to_name)
-      mail.body.encoded.should match(ecard.from_name)
+      mail.body.encoded.should match(ecard.sender)
+      mail.body.encoded.should match(ecard.recipient)
     end
   end
   
