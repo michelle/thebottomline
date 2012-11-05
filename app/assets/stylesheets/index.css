@@ -263,15 +263,15 @@ input:-moz-placeholder {
 }
 
 .error {
-	background-color: #ba2c65;
+	background-color: #D03C78;
 }
 
 .error a {
-	color: #8a1443;
+	color: #82123f;
 }
 
 .error a:hover {
-	color: #fff;
+	color: #8a1443;
 }
 
 .usercontrol:hover, .rbutton:hover {
