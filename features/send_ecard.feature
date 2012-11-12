@@ -30,11 +30,11 @@ Feature: Send an ecard to my loved ones
     Given I am trying to send an ecard
     And I fill in the ecard form without a valid recipient
     And I press "Send my card!"
-    Then I should see "Please enter a valid recipient name and email"
+    Then I should see an error
 
   Scenario: Send an ecard without my information
     Given I am trying to send an ecard
     And I fill in the ecard form without my information
     And I press "Send my card!"
-    Then I should see "Please enter your name and email"
+    Then I should see an error
 
