@@ -22,7 +22,6 @@ Feature: Login as an Admin user
     Given I am on the home page
     When I login as Admin
     Then I should be on the Admin page
-      And I should see the number of subscribed users is 3
     
   Scenario: Sending newsletters to subscribers via text box as an Admin
     Given I am logged in as Admin
@@ -44,7 +43,7 @@ Feature: Login as an Admin user
     Given I am logged in as Admin
     When I press download postcards
     Then I should be on the Admin page
-      And I should see "Downloaded"
+      And I should see "Downloading"
       
   Scenario: Number of subscribed users
     Given I am logged in as Admin
