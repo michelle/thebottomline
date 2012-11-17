@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
   def captialize_names
     self.name = self.name.split.map{|x| x.capitalize}.join(" ")
   end
+  
+  def get_subscriber_count
+    count = User.find_all_by_subscribed(true).count;
+    return count;
+  end
 
   def self.valid_user(email, password)
     user = User.find_by_email(email)
