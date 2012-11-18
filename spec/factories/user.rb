@@ -3,6 +3,6 @@ FactoryGirl.define do
     name "Some Name"
     email "somename@gmail.com"
     password "12345"
-    subscribed true
+    subscribed nil
   end
 end
