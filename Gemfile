@@ -18,6 +18,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'bcrypt-ruby'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'selenium'
 end
 group :production do
   gem 'pg'
