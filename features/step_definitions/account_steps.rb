@@ -15,11 +15,23 @@ end
 Given /^I have registered with The Bottom Line$/ do
 	User.create!({ :name => 'Michelle',
 							   :email => 'michellebu@berkeley.edu',
-							   :password => 'hunter2' })
+							   :password => 'hunter2'})
 	@user = User.new
 	@user.name = 'Michelle'
 	@user.email = 'michellebu@berkeley.edu'
 	@user.password = 'hunter2'
+end
+
+Given /^I am an admin of The Bottom Line$/ do
+	User.create!({ :name => 'Michelle',
+							   :email => 'admin@admin.com',
+							   :password => 'admin' ,
+                 :is_admin => true})
+	@user = User.new
+	@user.name = 'Michelle'
+	@user.email = 'admin@admin.com'
+	@user.password = 'admin'
+  @user.is_admin = true
 end
 
 Given /^I have logged in$/ do

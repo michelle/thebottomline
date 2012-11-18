@@ -7,11 +7,10 @@ class AdminController < ApplicationController
   end
 
   def send_newsletter
-    user = User.find_by_id(session[:userid])
-    if User.correct_password?(user, params[:confirm])
+    if User.correct_password?(@user, params[:confirm])
       users = User.where(:subscribed => true).all
       users.each do |user|
-        NewsletterMailer.newsletter_broadcast(user, params[:subject], params[:body]).deliver
+        NewsletterMailer.newsletter_email(user, params[:subject], params[:body]).deliver
       end
       flash[:notice] = 'Your newsletter has been sent to ' + users.length.to_s + ' subscribers!'
       redirect_to admin_path

@@ -31,6 +31,9 @@ module NavigationHelpers
     when /^the reminders page$/
     	'/send'
 
+    when /^the admin page$/
+    	'/admin'
+    
     when /^the e-card acknowledgement page$/
     	'/send/success'
 

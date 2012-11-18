@@ -6,7 +6,7 @@ Feature: Login and logout
   Background:
     Given I have registered with The Bottom Line
 
-  Scenario: Logging in
+  Scenario: Logging in as a normal user
     Given I am not currently logged in
     When I am on the login page
     Then I should see "Login"
@@ -14,6 +14,18 @@ Feature: Login and logout
     And I fill in "user_password" with "hunter2"
     And I press "Login"
     Then I should be on the reminders page 
+    Then I should see "Welcome, Michelle!"
+    Then I am logged in
+    
+  Scenario: Logging in as an admin
+    Given I am an admin of The Bottom Line
+    Given I am not currently logged in
+    When I am on the login page
+    Then I should see "Login"
+    And I fill in "user_email" with "admin@admin.com"
+    And I fill in "user_password" with "admin"
+    And I press "Login"
+    Then I should be on the admin page 
     Then I should see "Welcome, Michelle!"
     Then I am logged in
 

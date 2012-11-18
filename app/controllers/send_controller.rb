@@ -1,7 +1,5 @@
 class SendController < ApplicationController
 
-	# TODO(ericz): Save the DATE of the ecard/postcard sending.
-
   RECENT_COUNT = 5
   def index
     render "index"

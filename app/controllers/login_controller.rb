@@ -13,6 +13,10 @@ class LoginController < ApplicationController
     	flash[:notice] = "Welcome, <strong>" + @user.name + "</strong>!"
       session[:userid] = @user.id
       session[:name] = @user.name
+    	if @user.is_admin
+				redirect_to admin_path
+    		return
+			end
       redirect_to send_path 
     end
   end
