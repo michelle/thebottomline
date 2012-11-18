@@ -1,17 +1,17 @@
 class AdminController < ApplicationController
 
   before_filter :login_required
-  
+
   def index
     render :index
   end
-  
+
   def send_newsletter
     user = User.find_by_id(session[:userid])
     if User.correct_password?(user, params[:confirm])
       users = User.where(:subscribed => true).all
       users.each do |user|
-        NewsletterMailer.newsletter_broadcast(user, params[:subject], params[:body])
+        NewsletterMailer.newsletter_broadcast(user, params[:subject], params[:body]).deliver
       end
       flash[:notice] = 'Your newsletter has been sent to ' + users.length.to_s + ' subscribers!'
       redirect_to admin_path
@@ -22,7 +22,7 @@ class AdminController < ApplicationController
       redirect_to admin_path
     end
   end
-  
+
   def login_required
     if session[:userid]
       @user = User.find_by_id(session[:userid])
@@ -32,8 +32,8 @@ class AdminController < ApplicationController
     end
     flash[:error]='Please log in as an administrator to continue'
     redirect_to login_path
-    return false 
+    return false
   end
-  
+
 end
 
