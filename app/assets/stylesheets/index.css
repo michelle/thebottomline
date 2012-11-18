@@ -101,6 +101,7 @@ a:hover {
 }
 
 #navbar {
+	z-index: 100;
 	position: relative;
 }
 
