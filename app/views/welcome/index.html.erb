@@ -1,5 +1,25 @@
-	<p>This is the future home of The Bottom Line's new postcard and e-card service, currently under development.</p>
+<% content_for :head do %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#why_register').click(function() {
+				$('#why_register_popup').fadeIn();
+			});
+			$('#close').click(function() {
+				$('#why_register_popup').fadeOut();
+			});
+			$('#register_why').click(function() {
+				window.location.href = '/register';
+			});
+				
+		});
+	</script>
+
+<% end %>
+<p>This is the future home of The Bottom Line's new postcard and e-card service, currently under development.</p>
 	<p><a href="http://signthebottomline.org/">Visit the current website</a></p>
 
-
-	<button id="why_register">Why register?</button>
+<% if !session[:userid] %>
+	<button id="why_register" class="rbutton">Why register?</button>
+	<div class="hidden" id="why_register_popup">When you register with The Bottom Line, you not only are able to receive periodical informational newsletters about colorectal cancer, but are also able to send physical postcards and to bask in all of the good you've done by keeping track of the past cards you've sent. All of your information will be stored securely and will only be used for your convenience. If you don't want to commit to registering, that's not a problem either. You can still send as many e-cards as you want! Best of all, everything is free because we know just how important it is to get your loved ones screened.
+		<button id="register_why" class="rbutton bleft">Register now</button><a id="close">No thanks</a></div>
+<% end %>

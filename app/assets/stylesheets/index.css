@@ -20,7 +20,8 @@ a:hover {
 }
 
 #content {
-	z-index: 100;
+	position: relative;
+	z-index: 50;
 	border-radius: 5px;
 	background-color: rgba(255,255,255,0.8);
 	width: 700px;
@@ -33,6 +34,7 @@ a:hover {
 }
 
 #frontbutton {
+	position: relative;
 	z-index: 99;
 	margin: -25px 0px 0px 0px;
 }
@@ -416,4 +418,33 @@ h4 {
 	font-weight: 700;
 	text-shadow: none;
 	margin-bottom: 3px;
+}
+
+.hidden {
+	display: none;
+}
+
+#close {
+	cursor: pointer;
+}
+
+#why_register_popup {
+	position: absolute;
+	top: 20px;
+	font-size: 14px;
+	text-align: left;
+	border-radius: 10px;
+	color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(255,255,255,0.8);
+	width: 680px;
+	padding: 10px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+	background-color: #0c2149;
+}
+
+#why_register_popup button {
+	margin: 10px auto;
+	font-size: 14px;
+	line-height: 18px;
+	height: 30px;
 }
