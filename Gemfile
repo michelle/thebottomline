@@ -34,6 +34,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'whenever', :require => false
 
 # Use unicorn as the web server
 # gem 'unicorn'

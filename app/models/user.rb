@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
   def encrypt_password
     self.password = BCrypt::Password.create(self.password)
   end
-  
+
   def captialize_names
     self.name = self.name.split.map{|x| x.capitalize}.join(" ")
   end
-  
+
   def get_subscriber_count
     count = User.find_all_by_subscribed(true).count;
     return count;
@@ -51,6 +51,12 @@ class User < ActiveRecord::Base
 
   def self.subscribed?(userId)
     return User.find(userId).subscribed
+  end
+
+  def self.send_newsletter_to_subscribers(content)
+    User.where(:subscribed => true).each do |subscribed_user|
+      NewsletterMailer.send_newsletter(subscribed_user, content).deliver
+    end
   end
 
   def get_recent_ecards(amount)
