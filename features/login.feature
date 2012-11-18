@@ -7,7 +7,6 @@ Feature: Login and logout
     Given I have registered with The Bottom Line
 
   Scenario: Logging in as a normal user
-    Given I am not currently logged in
     When I am on the login page
     Then I should see "Login"
     And I fill in "user_email" with "michellebu@berkeley.edu"
@@ -19,7 +18,6 @@ Feature: Login and logout
     
   Scenario: Logging in as an admin
     Given I am an admin of The Bottom Line
-    Given I am not currently logged in
     When I am on the login page
     Then I should see "Login"
     And I fill in "user_email" with "admin@admin.com"
@@ -36,7 +34,6 @@ Feature: Login and logout
     Then I am not currently logged in
 
   Scenario: Logging in with bad credentials
-    Given I am not currently logged in
     When I am on the login page
     And I fill in "user_email" with "michellebu@berkeley.edu"
     And I fill in "user_password" with "evilpassword"

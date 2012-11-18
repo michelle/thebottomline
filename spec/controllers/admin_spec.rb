@@ -73,7 +73,9 @@ describe AdminController do
           post :send_newsletter
         end
         it 'should call newsletter broadcast on subscribed users' do
-          NewsletterMailer.should_receive(:newsletter_email).twice
+        	mailer = mock()
+        	mailer.stub(:deliver)
+          NewsletterMailer.should_receive(:newsletter_email).twice.and_return mailer
           post :send_newsletter
         end
         

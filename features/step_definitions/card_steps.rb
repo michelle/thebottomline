@@ -53,8 +53,8 @@ Then /^I should see previous postcards I have sent$/ do
 end
 
 Then /^my account information should be already filled in$/ do
-	step 'the "Name" field should contain "' + @user.name.split[0] + '"'
-	step 'the "Email" field should contain "' + @user.email + '"'
+	step 'the "card_sender" field should contain "' + @user.name.split[0] + '"'
+	step 'the "email" field should contain "' + @user.email + '"'
 end
 
 Given /^I have already sent ecards$/ do
@@ -80,8 +80,7 @@ Given /^I fill in the postcard form$/ do
 end
 
 Given /^I choose a background option$/ do
-	wait_until{ page.has_css?('.background[data-index="1"]')}  
-	page.find('//img[@id="1"]').trigger(:click)
+	find(:xpath, '//img[@data-index="1"]').click
 end
 
 Then /^my ecard should have the selected background$/ do
@@ -102,17 +101,17 @@ Given /^I am logged in and trying to send a postcard$/ do
 end
 
 Then /^my postcard should have the selected background$/ do
-	pending
+	find(:xpath, "//input[@id='card_background']")['value'].should == '/images/backgrounds/1.png'
 end
 
 Given /^I choose a preset message$/ do
-	pending
+	find(:xpath, "//div[@class='message'][last()]").click
 end
 
 Then /^my ecard should have the selected message$/ do
-	pending
+	find(:xpath, "//textarea[@id='card_message']")['value'].should == 'Prevention is the best cure.'
 end
 
 Then /^my postcard should have the selected message$/ do
-	pending
+	find(:xpath, "//textarea[@id='card_message']")['value'].should == 'Prevention is the best cure.' 
 end
