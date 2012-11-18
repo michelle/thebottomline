@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_save :captialize_names
 
   def encrypt_password
-		if self.password_changed? then self.password = BCrypt::Password.create(self.password) end
+    if self.password_changed? then self.password = BCrypt::Password.create(self.password) end
   end
 
   def captialize_names
@@ -51,12 +51,6 @@ class User < ActiveRecord::Base
 
   def self.subscribed?(userId)
     return User.find(userId).subscribed
-  end
-
-  def self.send_newsletter_to_subscribers(content)
-    User.where(:subscribed => true).each do |subscribed_user|
-      NewsletterMailer.send_newsletter(subscribed_user, content).deliver
-    end
   end
 
   def get_recent_ecards(amount)

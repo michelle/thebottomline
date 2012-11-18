@@ -3,18 +3,17 @@ require 'time'
 
 class Postcard < ActiveRecord::Base
   belongs_to :user
-  @@last_sent_file_path = "last_sent_postcard_csv"
-  @@csv_file_path = "postcards.csv"
+  @@last_sent_file_path = "tmp/last_sent_postcard_csv"
+  @@csv_file_path = "tmp/postcards.csv"
 
-  def send_postcard_csv
+  def self.send_postcard_csv
     create_postcard_csv()
-    #call PostcardMailer.send_csv(path_to_file)
-    PostcardMailer.send_csv(@@csv_file_path)
+    PostcardMailer.send_csv(@@csv_file_path).deliver
     #delete csv file
     File.delete(@@csv_file_path)
   end
 
-  def create_postcard_csv
+  def self.create_postcard_csv
     #generate csv file
     CSV.open(@@csv_file_path, "wb") do |csv|
       #header
@@ -34,20 +33,20 @@ class Postcard < ActiveRecord::Base
     end
   end
 
-  def find_last_sent_time
+  def self.find_last_sent_time
     if not File.exist? @@last_sent_file_path
       File.open(@@last_sent_file_path, "w") do |file|
         file.write(Time.at(0).to_s)
       end
     end
-    File.open(@@last_sent_file_path, "r") do |file|
-      last_sent_time = Time.parse(file.read)
-    end
+    file = File.open(@@last_sent_file_path, "r")
+    last_sent_time = Time.parse(file.read)
+    file.close()
     return last_sent_time
   end
 
-  def update_last_sent_time(time)
-    File.open(last_sent_file_path, "w") do |file|
+  def self.update_last_sent_time(time)
+    File.open(@@last_sent_file_path, "w") do |file|
         file.write(time.to_s)
     end
   end
