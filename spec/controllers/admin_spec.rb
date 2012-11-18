@@ -73,7 +73,7 @@ describe AdminController do
           post :send_newsletter
         end
         it 'should call newsletter broadcast on subscribed users' do
-          NewsletterMailer.should_receive(:newsletter_broadcast).twice
+          NewsletterMailer.should_receive(:newsletter_email).twice
           post :send_newsletter
         end
         
