@@ -75,6 +75,9 @@ Thebottomline::Application.routes.draw do
   match 'send/ecard' => 'send#ecard_new', :via => :get, :as => :send_ecard
   match 'send/ecard' => 'send#ecard_create', :via => :post
   
+  match 'admin' => 'admin#index', :via => :get, :as => :admin
+  match 'admin/newsletter'=> 'admin#send_newsletter', :via => :post
+  
   root :to => 'welcome#index', :as => :welcome
   
 end

@@ -156,18 +156,18 @@ input:-moz-placeholder {
 	color: #b3d8dd;
 }
 
-#login, #register, #settings, #send {
+#login, #register, #settings, #send, #admin {
 	font-size: 18px;
 }
 
-#login label, #register label, #settings label, #send label {
+#login label, #register label, #settings label, #send label, #admin label {
 	line-height: 40px;
 }
 #login .speciallabel, #register .speciallabel, #settings .speciallabel, #send .speciallabel {
 	font-size: 14px;
 }
 
-#forgot .clearfix, #login form {
+#forgot .clearfix, #login form, #admin form {
 	text-align: left;
 }
 

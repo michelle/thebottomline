@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_save :captialize_names
 
   def encrypt_password
-    self.password = BCrypt::Password.create(self.password)
+		if self.password_changed? then self.password = BCrypt::Password.create(self.password) end
   end
 
   def captialize_names
