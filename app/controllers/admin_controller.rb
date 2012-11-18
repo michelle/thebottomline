@@ -7,8 +7,7 @@ class AdminController < ApplicationController
   end
   
   def send_newsletter
-    user = User.find_by_id(session[:userid])
-    if User.correct_password?(user, params[:confirm])
+    if User.correct_password?(@user, params[:confirm])
       users = User.where(:subscribed => true).all
       users.each do |user|
         NewsletterMailer.newsletter_broadcast(user, params[:subject], params[:body])
