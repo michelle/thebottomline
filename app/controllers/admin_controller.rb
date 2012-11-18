@@ -9,11 +9,14 @@ class AdminController < ApplicationController
   def send_newsletter
     user = User.find_by_id(session[:userid])
     if User.correct_password?(user, params[:confirm])
-      User.where(:subscribed => true).all.each do |user|
+      users = User.where(:subscribed => true).all
+      users.each do |user|
         NewsletterMailer.newsletter_broadcast(user, params[:subject], params[:body])
       end
+      flash[:notice] = 'Your newsletter has been sent to ' + users.length + ' subscribers!'
+      redirect_to admin_path
     else
-      flash[:error]='Password is incorrect, please try again'
+      flash[:error]= 'Password is incorrect, please try again'
       redirect_to admin_path
     end
   end
