@@ -36,12 +36,12 @@ $('#wysiwyg').submit(function() {
 <%= form_tag :action => 'send_newsletter', :id => "wysiwyg" do %>
 <div class="clearfix">
 	<%= label_tag 'subject', 'Email Subject' %>
-	<%= text_field_tag('subject', nil, {:class => 'rinput', :placeholder => 'Check out Uranus!', :required => 'required'})%>  
+	<%= text_field_tag('subject', nil, {:class => 'rinput', :placeholder => 'Check out Uranus!', :required => 'required', :value => flash[:subject]})%>  
 </div>
 
 <div class="wysiwyg">
 <%= label_tag 'body', 'Email Body', :class => 'speciallabel'%>
-<%= text_area_tag 'body', 'Learning about Colorectal Cancer is anything "butt" optional!', {:class => 'rinput'} %>
+<%= text_area_tag 'body', flash[:body].nil? ? 'Learning about Colorectal Cancer is anything "butt" optional!' : flash[:body], {:class => 'rinput'} %>
 </div>
 
 <div class="clearfix">
