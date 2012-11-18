@@ -1,12 +1,39 @@
 <% content_for :head do %>
 	<script type="text/javascript">
-	$(function() {
+		$(function() {
+			backgrounds = ['/images/backgrounds/default',
+					'/images/backgrounds/1',
+					'/images/backgrounds/2'];
+			messages = ['Getting screened for colorectal cancer is anything "butt" optional.',
+				'Trust your gut. Get screened for colorectal cancer.',
+				'Prevention is the best cure.'];
+			
+			for (var i = 0; i < messages.length; i += 1) {
+				var msg = $('<div></div>').addClass('message').text(messages[i]);
+				$('#choose_message').append(msg);
+			}
+			for (var i = 0; i < backgrounds.length; i += 1) {
+			var bg = $('<img>').addClass('background').attr('src', backgrounds[i] + '-small.png').attr('data-index', i).attr('width', 100);
+				if (i == 0) {
+					bg.addClass('active');
+				}
+				$('#choose_background').append(bg);
+			}
 			$('.recent').click(function() {
 				var card = $(this);
 				$('#card_sender').val(card.attr('data-sender'));
 				$('#card_recipient').val(card.attr('data-recipient'));
 				$('#card_address').val(card.attr('data-address'));
 				$('#card_message').val(card.attr('data-message'));
+			});
+			$('.background').click(function() {
+				$('.background').removeClass('active');
+				$(this).addClass('active');
+				$('#card_background').val(backgrounds[parseInt($(this).attr('data-index'))] + '.png');				
+			});
+
+			$('.message').click(function() {
+				$('#card_message').val($(this).text());
 			});
 	});
 	</script>
@@ -45,11 +72,18 @@
 <%= label_tag 'card[address]', 'Recipient Email'%>
 <%= email_field_tag('card[address]', nil, {:class => 'rinput', :placeholder => 'kitten@cats.com', :required => 'required'})%>  
 </div>
+<div class="choose" id="choose_background">
+	<h4>Choose a card background:</h4>
+</div>
+<%= hidden_field_tag 'card[background]', '/images/backgrounds/default.png' %>
 <div class="clearfix">
 <%= label_tag 'card[message]', 'Personal Message'%>
 <%= text_area_tag('card[message]', nil, {:class => 'rinput', :placeholder => 'Getting screened is anything “butt” optional.', :required => 'required'})%>  
 </div>
 <div class="clear"></div>
+<div class="choose" id="choose_message">
+	<h4>...or use one of our messages!</h4>
+</div>
 <%= submit_tag 'Send my card!', :class => 'rbutton' %>
 <% end %>
 </div>
