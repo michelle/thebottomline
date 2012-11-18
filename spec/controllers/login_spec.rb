@@ -81,16 +81,25 @@ describe LoginController do
         
     it 'should set session error if valid credentials' do
       User.stub(:valid_user).and_return @user
+      @user.stub(:is_admin)
       post :login, @params
       session[:userid].should eq @userid
     end
     
-    it 'should redirect if valid credentials' do
+    it 'should redirect to welcome page if valid credentials' do
       User.should_receive(:valid_user).and_return @user
+      @user.stub(:is_admin)
       post :login, @params
       response.should redirect_to send_path 
       flash[:notice].should eq 'Welcome, <strong>' + @user.name + '</strong>!'
     end
+
+    it 'should redirect to admin panel if user is an admin' do
+    	User.stub(:valid_user).and_return @user
+    	@user.should_receive(:is_admin).and_return true
+    	post :login, @params
+    	response.should redirect_to admin_path
+		end
   end
 end  
 
