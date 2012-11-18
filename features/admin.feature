@@ -19,37 +19,20 @@ Feature: Login as an Admin user
     Then I should be on the login page
     
   Scenario: Sending newsletters to subscribers via text box as an Admin
-    Given I am logged in as Admin
-    When I fill in the newsletter text field with "Welcome bottomline users!"
-      And I press send
-    Then I should be prompt to verify my password
-    When I fill in password with "somethingsecure"
-      And I press send
-    Then I should be on the admin page
-      And I should see "Your newsletter has been sent!"
+    Given I am an admin of The Bottom Line
+    And I log in as an admin
+    When I fill in "subject" with "Welcome Bottom Line Users!"
+    When I fill in the email body with "Hello there!"
+    When I fill in "confirm" with "admin"
+      And I press "Send Newsletter"
+    Then my card should be sent to the correct number of subscribers
       
-  Scenario: Sending newsletters to subscribers with no content as an Admin
-    Given I am logged in as Admin
-    When I press "Send newsletter"
-    Then I should be on the admin page
-    And I should see "Silly, you forgot to send anything"
-      
-  Scenario: Downloading CSV file of all unsent postcards
-    Given I am logged in as Admin
-    When I press download postcards
-    Then I should be on the admin page
-    And I should see "Downloading"
-      
-  Scenario: Number of subscribed users
-    Given I am logged in as Admin
-    Then I should see the number of current subscribers is 3
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+  Scenario: Sending newsletters without the correct password
+    Given I am an admin of The Bottom Line
+    And I log in as an admin
+    When I fill in "subject" with "Something Mean"
+    And I fill in the email body with "Something really mean"
+    And I fill in "confirm" with "evil"
+    And I press "Send Newsletter"
+    Then I should see "Password is incorrect"

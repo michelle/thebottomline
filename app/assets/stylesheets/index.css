@@ -101,6 +101,7 @@ a:hover {
 }
 
 #navbar {
+	z-index: 100;
 	position: relative;
 }
 
@@ -447,4 +448,35 @@ h4 {
 	font-size: 14px;
 	line-height: 18px;
 	height: 30px;
+}
+
+.choose {
+	background-color: #fffce0;
+	border: 1px solid #f7ec8c;
+	margin: 10px 0px;
+	padding: 10px;
+}
+
+.choose h4 {
+	color: rgb(22, 75, 115);
+	text-shadow: 0px 2px 0px #fff;
+}
+
+.active {
+	opacity: 1 !important;
+}
+
+.message, .background {
+	margin: 5px;
+	cursor: pointer;
+	color: #3f89bd;
+}
+
+.message:hover {
+	color: #306890;
+}
+
+.background {
+	border: 5px solid #f7ec8c;
+	opacity: 0.5;
 }

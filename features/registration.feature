@@ -4,12 +4,11 @@ Feature: Registration
   I want to be able to register securely
 
   Scenario: Standard registration
-    Given I am not currently logged in
     When I am on the registration page
     Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "michellebu@berkeley.edu"
-    And I fill in "Password" with "hunter2"
+    And I fill in "user_password" with "hunter2"
     And I fill in "Confirm Password" with "hunter2"
     And I press "Register"
     # We should allow users who don't want to give up their address to also register, but then during the sending save their address/stuff.
@@ -17,13 +16,12 @@ Feature: Registration
     Then I am logged in
 
   Scenario: Email already exists
-    Given I am not currently logged in
     Given "takenemail@taken.com" is an existing email
     When I am on the registration page
     Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "takenemail@taken.com"
-    And I fill in "Password" with "hunter2"
+    And I fill in "user_password" with "hunter2"
     And I fill in "Confirm Password" with "hunter2"
     And I press "Register"
     Then I should be on the registration page
@@ -31,12 +29,11 @@ Feature: Registration
     Then I should see "Email has already been taken"
 
   Scenario: Passwords do not match 
-    Given I am not currently logged in
     When I am on the registration page
     Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "michellebu@berkeley.edu"
-    And I fill in "Password" with "hunter2"
+    And I fill in "user_password" with "hunter2"
     And I fill in "Confirm Password" with "hunter3"
     And I press "Register"
     Then I should be on the registration page
@@ -44,12 +41,11 @@ Feature: Registration
     Then I should see "Passwords do not match"
 
   Scenario: Password is too short
-    Given I am not currently logged in
     When I am on the registration page
     Then I should see "Register"
     And I fill in "Name" with "Michelle Bu"
     And I fill in "Email" with "michellebu@berkeley.edu"
-    And I fill in "Password" with "hun"
+    And I fill in "user_password" with "hun"
     And I fill in "Confirm Password" with "hun"
     And I press "Register"
     Then I should be on the registration page
@@ -57,11 +53,10 @@ Feature: Registration
     Then I should see "Password is too short (minimum is 4 characters)"
 
   Scenario: Blank fields 
-    Given I am not currently logged in
     When I am on the registration page
     Then I should see "Register"
     And I fill in "Email" with "michellebu@berkeley.edu"
-    And I fill in "Password" with "hunter2"
+    And I fill in "user_password" with "hunter2"
     And I fill in "Confirm Password" with "hunter3"
     And I press "Register"
     Then I should be on the registration page
