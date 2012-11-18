@@ -34,7 +34,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'whenever', :require => false
+gem 'rufus-scheduler'
 
 # Use unicorn as the web server
 # gem 'unicorn'
