@@ -1,49 +1,27 @@
 Given /^the following users exist:$/ do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+	table.hashes.each do |user|
+		User.create user
+  end
 end
 
 Given /^I am logged in as Stephanie$/ do
-  pending # express the regexp above with the code you wish you had
+	step 'I am on the login page'
+	step 'I fill in "user_email" with "Stephanie"'
+	step 'I fill in "user_password" with "mypassword"'
+	step 'I press "Login"'
 end
 
-When /^I try to access the Admin page$/ do
-  pending # express the regexp above with the code you wish you had
+When /^I log in as an admin$/ do
+	step 'I am on the login page'
+	step 'I fill in "user_email" with "admin@admin.com"'
+	step 'I fill in "user_password" with "admin"'
+	step 'I press "Login"'
 end
 
-When /^I login as Admin$/ do
-  pending # express the regexp above with the code you wish you had
+When /^I fill in the email body with "(.*)"$/ do |msg|
+	step 'I fill in "body" with "' + msg + '"'
 end
 
-Then /^I should see the number of subscribed users is (\d+)$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^my card should be sent to the correct number of subscribers$/ do
+	step 'I should see "Your newsletter has been sent to 3 subscribers!"'
 end
-
-Given /^I am logged in as Admin$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I fill in the newsletter text field with "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I press send$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should be prompt to verify my password$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I fill in password with "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I press download postcards$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should see the number of current subscribers is (\d+)$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-

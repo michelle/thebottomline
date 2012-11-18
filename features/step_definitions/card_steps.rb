@@ -79,3 +79,40 @@ Given /^I fill in the postcard form$/ do
 	step 'I fill in "card_message" with "Hi dad please get checked"'
 end
 
+Given /^I choose a background option$/ do
+	wait_until{ page.has_css?('.background[data-index="1"]')}  
+	page.find('//img[@id="1"]').trigger(:click)
+end
+
+Then /^my ecard should have the selected background$/ do
+	find(:xpath, "//input[@id='card_background']")['value'].should == '/images/backgrounds/1.png'
+end
+
+Then /^my ecard should have the default background$/ do
+	find(:xpath, "//input[@id='card_background']")['value'].should == '/images/backgrounds/default.png'
+end
+
+Then /^my postcard should have the default background$/ do
+	find(:xpath, "//input[@id='card_background']")['value'].should == '/images/backgrounds/default.png'
+end
+
+Given /^I am logged in and trying to send a postcard$/ do
+	step 'I have logged in'
+	step 'I am trying to send a postcard'
+end
+
+Then /^my postcard should have the selected background$/ do
+	pending
+end
+
+Given /^I choose a preset message$/ do
+	pending
+end
+
+Then /^my ecard should have the selected message$/ do
+	pending
+end
+
+Then /^my postcard should have the selected message$/ do
+	pending
+end
