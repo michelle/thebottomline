@@ -23,7 +23,7 @@ describe PostcardMailer do
     #ensure that the attachment is there
     it 'attaches the file to the email' do
       mail.has_attachments?.should == true
-      mail.attachments.first.original_filename.should == "postcards.csv"
+      mail.attachments.first.filename.should == "postcards.csv"
       mail.attachments.first.content_type.should == "text/csv; filename=postcards.csv"
       mail.attachments.first.body.should == File.read("test/fixtures/testfile.csv")
     end
