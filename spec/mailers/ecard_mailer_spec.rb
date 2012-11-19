@@ -3,9 +3,9 @@ require 'spec_helper'
 describe EcardMailer do
   describe 'ecard sending' do
     let(:ecard) { mock_model(Ecard, :sender => 'Eric',
-                                   :recipient => 'Granny', 
-                                   :address => 'koolgranny@email.com',
-                                   :message => 'test!') }
+                                    :recipient => 'Granny', 
+                                    :address => 'koolgranny@email.com',
+                                    :message => 'test!') }
     let(:mail) { EcardMailer.ecard_email(ecard) }
  
     #ensure that the subject is correct

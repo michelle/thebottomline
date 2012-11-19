@@ -6,11 +6,13 @@ describe User do
     @user = FactoryGirl.create(:user,
                               :name=>"President Skroob",
                               :email=>"skroobydoo@spaceballs.com",
-                              :password=>"12345")
+                              :password=>"12345",
+                              :subscribed=>true)
     @user2 = FactoryGirl.create(:user,
                                 :name=>"granny deffo",
                                 :email=>"coolgranny@gmail.com",
-                                :password=>"12345")
+                                :password=>"12345",
+                                :subscribed=>nil)
   end
   describe 'adding a user' do
     it 'should encrypt the given password in the database' do
@@ -20,6 +22,12 @@ describe User do
     it 'should capitalize the user\'s name' do
       user2_in_database = User.find(@user2.id)
       user2_in_database.name.should == "Granny Deffo"
+    end
+  end
+  describe 'number of subscribers' do
+    it "should return the number of subscribers" do
+      number_of_subscribers = User.get_subscriber_count
+      number_of_subscribers.should == 1
     end
   end
   describe 'validating a password' do
@@ -49,8 +57,8 @@ describe User do
   end
   describe 'get subscription flag' do
     it 'should let caller know if user is subscribed' do
-      User.stub(:find_by_email).and_return(@user2)
-      user_in_database = User.find(@user2.id)
+      User.stub(:find_by_email).and_return(@user)
+      user_in_database = User.find(@user.id)
       User.subscribed?(user_in_database).should == true
     end
   end

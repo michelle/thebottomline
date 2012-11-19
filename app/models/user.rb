@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     self.name = self.name.split.map{|x| x.capitalize}.join(" ")
   end
 
-  def get_subscriber_count
+  def self.get_subscriber_count
     count = User.find_all_by_subscribed(true).count;
     return count;
   end
