@@ -13,6 +13,7 @@ class Postcard < ActiveRecord::Base
       File.delete(@@csv_file_path)
     end
   end
+
   #creates the csv file if there are postcards to send, returning true if the file is created successfully
   def self.create_postcard_csv
     last_sent_time = find_last_sent_time()
@@ -44,18 +45,18 @@ class Postcard < ActiveRecord::Base
   def self.find_last_sent_time
     if not File.exist? @@last_sent_file_path
       File.open(@@last_sent_file_path, "w") do |file|
-        file.write(Time.at(0).to_s)
+        file.write(Time.at(0).to_f)
       end
     end
     file = File.open(@@last_sent_file_path, "r")
-    last_sent_time = Time.parse(file.read)
+    last_sent_time = Time.at(file.read.to_f)
     file.close()
     return last_sent_time
   end
 
   def self.update_last_sent_time(time)
     File.open(@@last_sent_file_path, "w") do |file|
-        file.write(time.to_s)
+        file.write(time.to_f)
     end
   end
 
