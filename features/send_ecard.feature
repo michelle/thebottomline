@@ -11,6 +11,7 @@ Feature: Send an ecard to my loved ones
     And I fill in the ecard form
     And I press "Send my card!"
     Then my ecard should be sent
+    And I should be asked to register
 
   Scenario: See previously sent ecards when logged in
     Given I am logged in and trying to send an ecard

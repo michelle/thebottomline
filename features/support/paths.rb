@@ -46,6 +46,10 @@ module NavigationHelpers
     when /^the recover password page$/
 			forgot_path	
 
+		when /^the donation page$/
+			# TODO
+			'/'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
