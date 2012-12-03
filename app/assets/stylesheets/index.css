@@ -12,6 +12,10 @@ a:hover {
 	color: #8a1443;
 }
 
+#welcome {
+	text-align: left;
+}
+
 /** Layout stuff */
 #container {
 	width: 800px;

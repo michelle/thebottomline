@@ -78,6 +78,9 @@ Thebottomline::Application.routes.draw do
   match 'admin' => 'admin#index', :via => :get, :as => :admin
   match 'admin/newsletter'=> 'admin#send_newsletter', :via => :post
   
+  match 'help' => 'welcome#help', :as => :help
+  match 'about' => 'welcome#about', :as => :about
+  match 'mission' => 'welcome#mission', :as => :mission
   root :to => 'welcome#index', :as => :welcome
   
 end
