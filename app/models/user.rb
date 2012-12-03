@@ -64,8 +64,13 @@ class User < ActiveRecord::Base
   end
 
   def can_send_postcard?
-    #return boolean: true if sent less than 2 postcards
-    return self.postcards.count < 2
+    #return boolean: true if the last card sent is older than a year 
+    #or if user hasn't sent more than 2
+    if self.postcards.count < 2 then return true end 
+    oneYearAgo = (Date.today - 365).to_s
+    oldestPostcardDate = self.postcards.find(:first, :order => 'updated_at asc').updated_at.to_s
+    
+    return oldestPostcardDate < oneYearAgo
   end
 
 end
