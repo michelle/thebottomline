@@ -7,6 +7,12 @@ describe LoginController do
       get :index
       response.should render_template 'index'
     end
+    it 'should redirect and flash if already logged in' do
+      session[:userid] = 'notnil'
+      get :index
+      response.should redirect_to welcome_path
+      flash[:notice].should include 'You\'re already logged in!'
+    end
   end
   
   describe 'logout page' do
