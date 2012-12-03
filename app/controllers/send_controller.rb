@@ -28,6 +28,7 @@ class SendController < ApplicationController
 			end
       
       EcardMailer.ecard_email(@ecard).deliver
+      EcardMailer.ecard_confirmation_email(params[:email], @ecard).deliver
       redirect_to send_path
     end
   end
@@ -67,6 +68,7 @@ class SendController < ApplicationController
       flash[:notice] = "Yay! Your postcard has been sent"
       @user.postcards.push(@postcard)
       @user.save
+      PostcardMailer.postcard_confirmation_email(@postcard).deliver
       # TODO(ericz): Actually save the file as a CSV of sorts.
       redirect_to send_path
     end

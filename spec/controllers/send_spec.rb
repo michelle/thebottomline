@@ -43,6 +43,8 @@ describe SendController do
         @mailer.stub :deliver
         @ec = mock()
         @ec.stub(:push)
+        EcardMailer.stub(:ecard_email).and_return(@mailer)
+        EcardMailer.stub(:ecard_confirmation_email).and_return(@mailer)        
       end
       it 'should set uesrs if logged in' do
         session[:userid] = @userid
@@ -66,7 +68,6 @@ describe SendController do
       end
       it 'should flash and save card if card is valid' do
         @ecard.stub(:valid?).and_return(true)
-        EcardMailer.stub(:ecard_email).and_return(@mailer)
         post :ecard_create, @params
         flash[:notice].length.should be > 0
       end
@@ -76,7 +77,6 @@ describe SendController do
         @user.should_receive(:save)
         @user.should_receive(:ecards).and_return(@ec)
         @ec.should_receive(:push).with(@ecard)
-        EcardMailer.stub(:ecard_email).and_return(@mailer)
         post :ecard_create, @params
         flash[:notice].length.should be > 0
       end
@@ -84,11 +84,16 @@ describe SendController do
         @ecard.stub(:valid?).and_return(true)
         EcardMailer.should_receive(:ecard_email).with(@ecard).and_return(@mailer)
         post :ecard_create, @params
-        flash[:notice].length.should be > 0
+      end
+      it 'should send confirmation email if card is valid' do
+        testemail = 'xxx'
+        @params[:email] = testemail
+        @ecard.stub(:valid?).and_return(true)
+        EcardMailer.should_receive(:ecard_confirmation_email).with(testemail, @ecard).and_return(@mailer)
+        post :ecard_create, @params
       end
       it 'should redirect to send index if card is valid' do 
         @ecard.stub(:valid?).and_return(true)
-        EcardMailer.stub(:ecard_email).and_return(@mailer)
         post :ecard_create, @params
         response.should redirect_to send_path
       end
@@ -137,6 +142,9 @@ describe SendController do
         @fakeerror.stub(:full_messages).and_return ["invalid entry", "bad data"]
         @pc = mock()
         @pc.stub(:push)
+        @mailer = mock()
+        @mailer.stub :deliver
+        PostcardMailer.stub(:postcard_confirmation_email).and_return(@mailer)
         Postcard.stub(:new).with(@params[:card]).and_return(@postcard)
       end
       it 'should redirect users if not logged in' do
@@ -188,6 +196,15 @@ describe SendController do
         @pc.should_receive(:push).with(@postcard)
         post :postcard_create, @params
         response.should redirect_to send_path
+      end
+      it 'should send confirmation email if card is valid' do 
+       User.stub(:find_by_id).and_return(@user)
+        @user.stub(:can_send_postcard?).and_return(true)
+        @postcard.stub(:valid?).and_return(true)
+        @user.stub(:save)
+        @user.stub(:postcards).and_return(@pc)
+        PostcardMailer.should_receive(:postcard_confirmation_email).with(@postcard).and_return(@mailer)
+        post :postcard_create, @params
       end
       it 'should redirect to send index if card is valid' do 
         User.stub(:find_by_id).and_return(@user)

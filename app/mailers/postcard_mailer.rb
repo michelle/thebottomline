@@ -7,4 +7,11 @@ class PostcardMailer < ActionMailer::Base
     mail(:to => email,
          :subject => "You got unsent postcards!")
   end
+  
+  def postcard_confirmation_email(postcard)
+    @postcard = postcard
+    mail(:to => postcard.user.email,
+         :subject => "Your postcard request has been received",
+         :content_type => 'text/html')
+  end
 end
