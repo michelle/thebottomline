@@ -4,10 +4,15 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Hello, <%= @ecard.sender %>.</h1>
-    <p>
-      Your ecard for <%= @ecard.recipient %> has been delivered.
-    </p>
-    <p>Thanks!</p>
+  <p>Dear <%= @ecard.sender %>,</p>
+
+  <p>Congrats on sending a ecard reminder to ask your loved ones to get screened for colorectal cancer. It’s a gutsy move.</p>
+
+  <p>But don’t just wait for <%= @ecard.recipient %>'s reaction. Go with your gut and talk to them today. You can tell us how it goes on Facebook, Google+ and Twitter.</p>
+
+  <p>Wishing you and yours a heaping pile of health and happiness,</p>
+
+  <p>The Bottom Line</p>
+    
   </body>
 </html>

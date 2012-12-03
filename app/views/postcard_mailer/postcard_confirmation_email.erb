@@ -4,10 +4,16 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Hello, <%= @postcard.sender %>.</h1>
-    <p>
-      We've received your request and will be mailing a postcard to <%= @postcard.recipient %> soon.
-    </p>
-    <p>Thanks!</p>
+    
+
+  <p>Dear <%= @postcard.sender %>,</p>
+
+  <p>Congrats on sending a postcard reminder to ask your loved ones to get screened for colorectal cancer. It’s a “gutsy” move.</p>
+
+  <p>The postcard should arrive within a week or two but don’t wait until the postcard arrives to remind them. Go with your gut and talk to <%= @postcard.recipient %> today. You can tell us how it goes on Facebook, Google+ and Twitter.</p>
+
+  <p>Wishing you and yours a heaping pile of health and happiness,</p>
+
+  </p>The Bottom Line</p>
   </body>
 </html>
