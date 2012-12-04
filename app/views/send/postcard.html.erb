@@ -22,11 +22,13 @@
 			$('.background').click(function() {
 				$('.background').removeClass('active');
 				$(this).addClass('active');
-				$('#card_background').val(backgrounds[parseInt($(this).attr('data-index'))] + '.png');				
+				$('#card_background').val(backgrounds[parseInt($(this).attr('data-index'))] + '.png');			
+        update();        
 			});
 
 			$('.message').click(function() {
 				$('#card_message').val($(this).text());
+        update();
 			});
 			$('.recent').click(function() {
 				var card = $(this);
@@ -37,8 +39,18 @@
 				$('#card_address_state').val(card.attr('data-address-state'));
 				$('#card_address_zip').val(card.attr('data-address-zip'));
 				$('#card_message').val(card.attr('data-message'));
+        update();
 			});
+      
+      $('#card_recipient, #card_sender, #card_message').keyup(update);
+      update();
 	});
+  function update (){
+    $('.cardpreview-caption').text($('#card_message').val());
+    $('.cardpreview-recipient').text($('#card_recipient').val() || "[Recipient]");
+    $('.cardpreview-sender').text($('#card_sender').val() || "[Sender]");
+    $('.cardpreview').css('background-image', 'url('+$('#card_background').val()+')');
+  }
 	</script>
 <% end %>
 <div id="send">
@@ -85,12 +97,31 @@
 </div>
 <%= hidden_field_tag 'card[background]', '/images/backgrounds/default.png' %>
 <div class="clearfix">
-<%= label_tag 'card[message]', 'Personal Message'%>
+<%= label_tag 'card[message]', 'Caption Message'%>
 <%= text_area_tag('card[message]', nil, {:class => 'rinput', :placeholder => 'Getting screened is anything “butt” optional.', :required => 'required'})%>  
 </div>
 <div class="clear"></div>
 <div class="choose" id="choose_message">
 	<h4>...or use one of our messages!</h4>
+</div>
+<div>
+Preview
+<div align="center"><div class="cardpreview">
+  <div class="cardpreview-caption"></div>
+  <div class="cardpreview-text">
+    <p>Dear <span class="cardpreview-recipient">[Recipient]</span>,</p>
+
+    <p>Colorectal cancer is the second leading cause of cancer-related deaths affecting both men and women.</p>
+
+    <p>The Bottom Line: 60% of these deaths could be prevented with routine screenings and 90% of people diagnosed with colorectal cancer at its earliest stages survive more than five years.</p>
+
+    <p>I am reminding you to get a life saving screening to protect your health.</p>
+
+    <p>Already checked? Haven’t yet? Update me and visit http://signthebottomline.org to learn more. Put this postcard on the fridge so you won’t forget.</p>
+
+    <p><span class="cardpreview-sender">[Sender]</span></p>
+  </div>
+</div></div>
 </div>
 <%= submit_tag 'Send my card!', :class => 'rbutton' %>
 <% end %>
