@@ -60,6 +60,7 @@ Thebottomline::Application.routes.draw do
 
   match 'settings' => 'settings#index', :via => :get, :as => :settings
   match 'settings' => 'settings#update', :via => :post
+  match 'settings/unsubscribe' => 'settings#unsubscribe', :via => :get
   
   match 'logout' => 'login#logout', :via => :get, :as => :logout
   match 'login' => 'login#index', :via => :get, :as => :login
