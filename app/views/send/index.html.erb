@@ -8,21 +8,27 @@ The Bottom Line will mail a free postcard (a real paper one!) or e-card (for you
 <br><br>
 <div class="tinytext">Note: Your information will be confidential. We promise not to be a pain in the butt about occasional updates.</div>
 
+
+<% if !flash[:notice].nil? %>
+
+	<br>
+	<h2>Enjoy our cards? Donate to The Bottom Line!</h2>
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<input type="hidden" name="cmd" value="_donations">
+	<input type="hidden" name="business" value="info@signthebottomline.org">
+	<input type="hidden" name="lc" value="US">
+	<input type="hidden" name="item_name" value="The Bottom Line">
+	<input type="hidden" name="no_note" value="0">
+	<input type="hidden" name="currency_code" value="USD">
+	<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" style="margin-left:252px;margin-top:20px" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+	</form>
+<% end %>
 <div id="buttons">
 	<a href="/send/ecard"><button class="large ecard">Send an E-card</button></a><a href="/send/postcard"><button class="large postcard">Send a Postcard</button></a>
 </div>
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_donations">
-<input type="hidden" name="business" value="info@signthebottomline.org">
-<input type="hidden" name="lc" value="US">
-<input type="hidden" name="item_name" value="The Bottom Line">
-<input type="hidden" name="no_note" value="0">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" style="margin-left:252px;margin-top:20px" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
 
 
 </div>

@@ -1,3 +1,23 @@
+Given /^I have sent a ecard$/ do
+	step 'I have registered with The Bottom Line'
+	step 'I am logged in and trying to send an ecard'
+	step 'I fill in the ecard form'
+	step 'I press "Send my card!"'
+end
+
+Then /^I should be prompted to donate to The Bottom Line$/ do
+	step 'I should see "Donate"'
+end
+
+Given /^I have sent a postcard$/ do
+	step 'I have registered with The Bottom Line'
+	step 'I have logged in'
+	step 'I am trying to send a postcard'
+	step 'I should see "Postcard"'
+	step 'I fill in the postcard form'
+	step 'I press "Send my card!"'
+end
+
 Given /^I am not logged in and trying to send an ecard$/ do
 	step 'I am trying to send an ecard'
 	step 'I should see "Sign in"'
