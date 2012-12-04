@@ -36,4 +36,16 @@ class SettingsController < ApplicationController
       redirect_to settings_path
     end     
   end
+  
+  def unsubscribe
+    @user = User.find_by_email params[:email]
+    if not @user.nil?
+      @user.subscribed = false
+      @user.save      
+      render "unsubscribe"
+    else
+      flash[:error] = 'No user exists with the given email'
+      redirect_to welcome_path
+    end
+  end
 end

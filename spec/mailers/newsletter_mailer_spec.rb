@@ -27,6 +27,7 @@ describe NewsletterMailer do
     #ensure that the @ecard variable appears in the email newsletter_email
     it 'assigns body values' do
       mail.body.encoded.should match(body)
+      mail.body.encoded.should match(user.email)
     end
   end
   

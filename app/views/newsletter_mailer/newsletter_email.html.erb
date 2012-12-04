@@ -5,5 +5,6 @@
   </head>
   <body>
     <%= @msg.html_safe %>
+    <p style="font-size: 10px">You received this email because you provided your email to The Bottom Line. We only email occasionally. Hate these emails’ guts? Unsubscribe <a href="http://thebottomline.herokuapp.com/settings/unsubscribe?email=<%=@email%>">here</a> and we will butt out.</p>
   </body>
 </html>
