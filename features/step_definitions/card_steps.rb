@@ -115,3 +115,7 @@ end
 Then /^my postcard should have the selected message$/ do
 	find(:xpath, "//textarea[@id='card_message']")['value'].should == 'Prevention is the best cure.' 
 end
+
+Then /^the preview should show my chosen message$/ do
+	find(:xpath, "//div[@class='cardpreview-caption']").should have_content('Prevention is the best cure')
+end
