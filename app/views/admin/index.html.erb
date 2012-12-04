@@ -46,7 +46,7 @@ $('#wysiwyg').submit(function() {
 
 <div class="clearfix">
 <%= label_tag 'confirm', 'Confirm Password'%>
-<%= password_field_tag('confirm', nil, {:class => 'rinput', :placeholder => 'Confirm password'})%>
+<%= password_field_tag('confirm', nil, {:class => 'rinput', :placeholder => 'Confirm password', :required => 'required'})%>
 </div>
 <%= submit_tag 'Send Newsletter', :class => 'rbutton' %>
 <% end %>
