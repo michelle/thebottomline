@@ -5,7 +5,7 @@ describe SettingsController do
     @user = mock()
     @userid = 'test'
   end
-  describe 'rendering login page' do
+  describe 'rendering settings page' do
     it 'checks if user is logged in' do
       session[:userid] = @userid
       User.should_receive(:find_by_id).with(@userid).and_return(nil)
@@ -145,7 +145,35 @@ describe SettingsController do
     end
     
   end
-    
+  
+  describe 'unsubscribe from newsletter' do
+    before :each do
+      @user = mock()
+      @user.stub(:save)
+      @user.stub(:subscribed=)
+      @params = {:email => "hi@hi.com"}
+      User.stub(:find_by_email).and_return(@user)
+    end
+    it 'should grab user account' do
+      User.should_receive(:find_by_email).with(@params[:email]).and_return(@user)
+      get :unsubscribe, @params
+    end
+    it 'should set subscribed to false and save if user found' do
+      @user.should_receive(:subscribed=).with(false)
+      @user.should_receive(:save)
+      get :unsubscribe, @params
+    end
+    it 'should render unsubscribe if user founder' do
+      get :unsubscribe, @params
+      response.should render_template 'unsubscribe'
+    end
+    it 'should flash and redirect if user not found' do
+      User.stub(:find_by_email).and_return(nil)
+      get :unsubscribe, @params
+      flash[:error].length.should be > 0
+      response.should redirect_to welcome_path
+    end
+  end
     
 end  
 
