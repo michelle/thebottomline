@@ -17,6 +17,7 @@ class AdminController < ApplicationController
     else
       flash[:error] = 'Password is incorrect, please try again'
       flash[:body] = params[:body]
+      print flash[:body]
       flash[:subject] = params[:subject]
       redirect_to admin_path
     end

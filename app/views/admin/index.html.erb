@@ -33,7 +33,7 @@ $('#wysiwyg').submit(function() {
 
 <div id="admin">
 <h2>Admin Panel</h2>
-<%= form_tag :action => 'send_newsletter', :id => "wysiwyg" do %>
+<%= form_tag "/admin/newsletter", :id => 'wysiwyg' do %>
 <div class="clearfix">
 	<%= label_tag 'subject', 'Email Subject' %>
 	<%= text_field_tag('subject', nil, {:class => 'rinput', :placeholder => 'Check out Uranus!', :required => 'required', :value => flash[:subject]})%>  
@@ -41,12 +41,12 @@ $('#wysiwyg').submit(function() {
 
 <div class="wysiwyg">
 <%= label_tag 'body', 'Email Body', :class => 'speciallabel'%>
-<%= text_area_tag 'body', flash[:body].nil? ? 'Learning about Colorectal Cancer is anything "butt" optional!' : flash[:body], {:class => 'rinput'} %>
+<%= text_area_tag 'body', flash[:body].nil? ? 'Learning about Colorectal Cancer is anything "butt" optional!' : flash[:body].html_safe, {:class => 'rinput'} %>
 </div>
 
 <div class="clearfix">
 <%= label_tag 'confirm', 'Confirm Password'%>
-<%= password_field_tag('confirm', nil, {:class => 'rinput', :placeholder => 'Confirm password'})%>
+<%= password_field_tag('confirm', nil, {:class => 'rinput', :placeholder => 'Confirm password', :required => 'required'})%>
 </div>
 <%= submit_tag 'Send Newsletter', :class => 'rbutton' %>
 <% end %>
