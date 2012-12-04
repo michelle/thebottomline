@@ -65,7 +65,7 @@ class SendController < ApplicationController
       flash[:error] = @postcard.errors.full_messages.join "<br>"
       redirect_to send_postcard_path
     else
-      flash[:notice] = "Yay! Your postcard has been sent"
+      flash[:notice] = "Yay! Your postcard is now processing."
       @user.postcards.push(@postcard)
       @user.save
       PostcardMailer.postcard_confirmation_email(@postcard).deliver

@@ -42,7 +42,7 @@ Then /^my ecard should be sent$/ do
 end
 
 Then /^my postcard should be sent$/ do
-	step 'I should see "Your postcard has been sent"'
+	step 'I should see "Your postcard is now processing"'
 end
 
 Given /^I am trying to send an ecard$/ do
