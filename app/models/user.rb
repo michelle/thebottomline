@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
     #or if user hasn't sent more than 2
     if self.postcards.count < 2 then return true end 
     oneYearAgo = (Date.today - 365).to_s
-    oldestPostcardDate = self.postcards.find(:first, :order => 'updated_at asc').updated_at.to_s
+    oldestPostcardDate = self.postcards.find(:first, :order => 'created_at asc').created_at.to_s
     
     return oldestPostcardDate < oneYearAgo
   end
