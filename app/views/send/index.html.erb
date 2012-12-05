@@ -9,7 +9,7 @@ The Bottom Line will mail a free postcard (a real paper one!) or e-card (for you
 <div class="tinytext">Note: Your information will be confidential. We promise not to be a pain in the butt about occasional updates.</div>
 
 
-<% if !flash[:notice].nil? %>
+<% if !flash[:notice].nil? and flash[:notice].include? 'Your' %>
 
 	<br>
 	<h3>Enjoy our cards? Donate to The Bottom Line!</h3>
